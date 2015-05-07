@@ -1,4 +1,4 @@
-![Wikihouse logo]( https://avatars3.githubusercontent.com/u/4091108?v=3&s=300 )
+![Wikihouse logo]( http://avatars3.githubusercontent.com/u/4091108?v=3&s=300 )
 
 WikiHouse Viewer Experiments Read Me
 ===
@@ -9,6 +9,11 @@ WikiHouse Viewer Experiments Read Me
 What I like to do is grab data files that are locked up in hard disks and do my best to help them sing and dance on the web in 3D.
 
 Remember, it does take a while to warm up. Here's first few steps... 
+
+[Display WikiHouse Studio2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-studio2/latest/index.html )
+~ takes way too long to load ~ 'Explode View' makes it worth the wait!  
+[Read Me]( http://wikihouse.github.io/index.html#./viewer-experiments/display-wikihouse-studio2/readme.md# )
+
 
 Check out some of these cool experiments:
 
