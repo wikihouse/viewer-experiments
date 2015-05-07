@@ -27,12 +27,4 @@ Remember, it does take a while to warm up. Here's first few steps...
 [Read Me]( http://wikihouse.github.io/viewer-experiments/index.html#display-wikihouse-mallet2/readme.md# )
 
 
-Check out some of these cool experiments:
-
-* [WikiHouse Studio2](http://theo-armour.github.io/theo-armour.testing/display-wikihouse-studio2/latest/index.html)
-
-* [WikiHouse StepUp1](http://theo-armour.github.io/theo-armour.testing/display-wikihouse-stepup1/latest/index.html)
-
-* [WikiHouse Mallet1](http://theo-armour.github.io/theo-armour.testing/display-wikihouse-mallet1/latest/index.html)
-
 [Source code on GitHub]( https://github.com/wikihouse/viewer-experiments/tree/gh-pages )
