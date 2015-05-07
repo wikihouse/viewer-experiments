@@ -3,7 +3,7 @@
 WikiHouse Viewer Experiments Read Me
 ===
 
-<span style=display:none; >[View as web page]( http://WikiHouse-Foundation.github.io/index.html#./experiments/readme.md# "view the files as apps." ) </span>  
+<span style=display:none; >[View as web page]( http://wikihouse.github.io/viewer-experiments/index.html "view the files as apps." ) </span>  
 
 2015-05-03 ~ San Francisco. Hi, my name is Theo Armour. I was introduced to WikiHouse by my daughter [Alix]( http://nimblescooters.com/about-us/ ) and became instantly intrigued.
 What I like to do is grab data files that are locked up in hard disks and do my best to help them sing and dance on the web in 3D.
