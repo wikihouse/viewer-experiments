@@ -31,10 +31,10 @@ The 'Build' series of files may grow into the specialty of creating new objects 
 of the equivalent WikiHouse object directly from user input.
 
 [Build WikiHouse StepUp1 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/build-wikihouse-stepup1-r2.html )
-~ Not as flashy. Work-in-progress toward parameterization  
+~ Work-in-progress toward parameterization  
 
 [Build WikiHouse StepUp1 R1]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/build-wikihouse-stepup1-r1.html )
-~ Not as flashy. Work-in-progress toward parameterization  
+~ Work-in-progress toward parameterization  
 
 ### Display Series
 The 'Display' series of files appear to be growing into the specialty of extracting data and measuring data in a variety of manner from the WikiHouse DXF files
@@ -43,12 +43,10 @@ The 'Display' series of files appear to be growing into the specialty of extract
 ~ Not as flashy. Work-in-progress toward parameterization  
 
 [Display WikiHouse StepUp1 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r2.html )
-~ Not as flashy. Work-in-progress toward parameterization  
+~ Dancing even better
 
-[Display WikiHouse StepUp1 R1]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/latest/index.html ) 
+[Display WikiHouse StepUp1 R1]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r1.html ) 
 ~ Starting to dance! Yay!  
-
-
 
 
 ### Issues
