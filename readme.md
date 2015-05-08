@@ -13,19 +13,19 @@ Remember, it does take a while to warm up. Here's the first few steps...
 
 [Display WikiHouse Studio2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-studio2/latest/index.html )   
 ~ takes way too long to load but 'Exploded View' makes it worth the wait!  
-[Read Me]( http://wikihouse.github.io/viewer-experiments/index.html#display-wikihouse-studio2/readme.md# )
+[Read Me]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-studio2/ )
 
 [Display WikiHouse StepUp1 R1]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/latest/index.html ) 
 ~ Starting to dance! Yay!  
 [Display WikiHouse StepUp1 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r3.html )
 ~ Not as flashy. Work-in-progress toward parameterization  
-[Read Me]( http://wikihouse.github.io/viewer-experiments/index.html#display-wikihouse-stepup1/readme.md# )
+[Read Me]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/ )
 
 [Display WikiHouse Mallet2 R1]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/latest/index.html ) 
 ~ This is where things have tended to start  
 [Display WikiHouse Mallet2 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/display-wikihouse-mallet2-r2.html )
 ~ Work-in-progress toward parameterization    
-[Read Me]( http://wikihouse.github.io/viewer-experiments/index.html#display-wikihouse-mallet2/readme.md# )
+[Read Me]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/ )
 
 
 [Source code on GitHub]( https://github.com/wikihouse/viewer-experiments/tree/gh-pages )
