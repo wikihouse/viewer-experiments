@@ -13,7 +13,7 @@ Fullscreen: [Build WikiHouse Mallet2 R3]( http://wikihouse.github.io/viewer-expe
 
 Linux has a penguin. Apple has an apple. WikiHouse has a mallet.
 
-<input type=button value='Source code on GitHub' onclick=window.location.assign('http://github.com/wikihouse/viewer-experiments/tree/gh-pages/display-wikihouse-mallet2'); />
+<input type=button value='Source code on GitHub' onclick=window.location.href='http://github.com/wikihouse/viewer-experiments/tree/gh-pages/display-wikihouse-mallet2'; />
 
 
 ### Build Series

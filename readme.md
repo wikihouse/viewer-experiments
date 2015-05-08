@@ -21,11 +21,9 @@ Remember, it does take a while to warm up. Here are the first work-in-progress s
 ~ Not as flashy. Work-in-progress toward parameterization  
 [Read Me]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/ )
 
-[Display WikiHouse Mallet2 R1]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/latest/index.html ) 
-~ This is where things have tended to start  
-[Display WikiHouse Mallet2 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/display-wikihouse-mallet2-r2.html )
-~ Work-in-progress toward parameterization    
-[Read Me]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/ )
+[Display WikiHouse Mallet2 R3]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/build-wikihouse-mallet2-r3.html ) ~ 2015-05-08 ~ Work-in-progress toward parameterization    
+[Display WikiHouse Mallet2 R1]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/display-wikihouse-mallet1-r1.html ) 
+~ 2015-04-30 ~ This is where things have tended to start  
+[Read Me]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/ )  
 
-
-<input type=button value='Source code on GitHub' onclick=window.location.assign('http://github.com/wikihouse/viewer-experiments/tree/gh-pages/'); />
+<input type=button value='Source code on GitHub' onclick=window.location.href='http://github.com/wikihouse/viewer-experiments/tree/gh-pages/'; />

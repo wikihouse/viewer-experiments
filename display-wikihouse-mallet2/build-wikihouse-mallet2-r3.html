@@ -32,8 +32,8 @@
 		css.innerHTML ='body { font: 600 12pt monospace; margin: 0; overflow: hidden; }' ;
 
 		info = document.body.appendChild( document.createElement( 'div' ) );
-		info.style.cssText = 'margin: 20px; position: absolute; ';
-		info.innerHTML = '<a href="" ><h1>' + document.title + '</h1></a>' +
+		info.style.cssText = 'margin: 0 20px; position: absolute; ';
+		info.innerHTML = '<a href="" ><h2>' + document.title + '</h2></a>' +
 			'<div id=msg >Building the mallet using parameters for each component</div>' +
 			'<p><input id=inpHeadWidth type=range min=60 max=500 value=100 step=10 /> <span id=heWi >Head width = 150 </span></p>' +
 			'<p><input id=inpHeadHeight type=range min=60 max=500 value=150 step=10 /> <span id=heHe >Head height = 100 </span></p>' +
@@ -112,8 +112,6 @@
 		mallet.add( drawHead( headHeight, headWidth, bevel, { pz: 100 } ) );
 		mallet.add( drawHeadHandle( headHeight, headWidth, handleLength, handleWidth, bevel, { pz: 75 } ) );
 		mallet.add( drawHeadHandle( headHeight, headWidth, handleLength, handleWidth, bevel, { pz: 50 } ) );
-//		mallet.add( drawPolyline( pathInside, { pz: 75 } ) );
-//		mallet.add( drawPolyline( pathInside, { pz: 50} ) );
 		mallet.add( drawHead( headHeight, headWidth, bevel, { pz: 25 } ) );
 
 		mallet.rotation.z = -0.5 * pi;
