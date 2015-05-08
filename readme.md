@@ -1,4 +1,4 @@
-![Wikihouse logo]( http://avatars3.githubusercontent.com/u/4091108?v=3&s=300 )
+![Wikihouse logo]( http://avatars3.githubusercontent.com/u/4091108?v=3&s=100 )
 
 WikiHouse Viewer Experiments Read Me
 ===

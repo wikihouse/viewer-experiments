@@ -1,7 +1,11 @@
+![Wikihouse logo]( http://avatars3.githubusercontent.com/u/4091108?v=3&s=100 )
+
+
+[WikiHouse Viewer Experiments]( ../index.html ) &raquo;
 Display WikiHouse Studio2 Read Me
 ===
 
-<span style=display:none; >[View as web page]( http://wikihouse.github.io/index.html#viewer-experiments/display-wikihouse-studio2/readme.md# "view the files as apps." ) <input value="<< You are here" size=15 style="font:bold 11pt monospace;border-width:0;" ></span>  
+<span style=display:none; >[View as web page]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-studio2/ "view the files as apps." ) <input value="<< You are here" size=15 style="font:bold 11pt monospace;border-width:0;" ></span>  
 
 [WikiHouse]( http://www.wikihouse.cc/ )  
 WikiHouse is an open source building system. Many designers, collaborating to make it simple for everyone to design, print and assemble beautiful, low-energy homes, customised to their needs.
