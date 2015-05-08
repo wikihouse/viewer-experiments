@@ -1,11 +1,11 @@
+![Wikihouse logo]( http://avatars3.githubusercontent.com/u/4091108?v=3&s=100 )  
+_<small>[WikiHouse]( http://www.wikihouse.cc/ ) is an open source building system. Many designers, collaborating to make it simple for everyone to design, print and assemble beautiful, low-energy homes, customised to their needs.</small>_
+***
+[WikiHouse Viewer Experiments]( http://wikihouse.github.io/viewer-experiments/ ) &raquo;
 Display WikiHouse StepUp1 Read Me
 ===
 
 <span style=display:none; >[View as web page]( http://WikiHouse.github.io/viewer-experiments/index.html#display-wikihouse-stepup1/readme.md# "view the files as apps." ) <input value="<< You are here" size=15 style="font:bold 11pt monospace;border-width:0;" ></span>  
-
-[WikiHouse]( http://www.wikihouse.cc/ )  
-WikiHouse is an open source building system. Many designers, collaborating to make it simple for everyone to design, print and assemble beautiful, low-energy homes, customised to their needs.
-
 
 This demo reads the StepUp_1.dxf file obtained from the WikiHouse Commons and translates the data into Three.js meshes.
 The data is displayed in the browser. Clicking on a mesh toggles its position from unassembled to assemble and back.

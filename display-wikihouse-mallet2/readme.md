@@ -1,3 +1,8 @@
+![Wikihouse logo]( http://avatars3.githubusercontent.com/u/4091108?v=3&s=100 )  
+_<small>[WikiHouse]( http://www.wikihouse.cc/ ) is an open source building system. Many designers, collaborating to make it simple for everyone to design, print and assemble beautiful, low-energy homes, customised to their needs.</small>_
+***
+[WikiHouse Viewer Experiments]( http://wikihouse.github.io/viewer-experiments/ ) &raquo;
+
 Display WikiHouse Mallet2 Read Me
 ===
 

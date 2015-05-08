@@ -1,16 +1,13 @@
-![Wikihouse logo]( http://avatars3.githubusercontent.com/u/4091108?v=3&s=100 )
-
-
-[WikiHouse Viewer Experiments]( ../index.html ) &raquo;
+![Wikihouse logo]( http://avatars3.githubusercontent.com/u/4091108?v=3&s=100 )  
+_<small>[WikiHouse]( http://www.wikihouse.cc/ ) is an open source building system. Many designers, collaborating to make it simple for everyone to design, print and assemble beautiful, low-energy homes, customised to their needs.</small>_
+***
+[WikiHouse Viewer Experiments]( http://wikihouse.github.io/viewer-experiments/ ) &raquo;
 Display WikiHouse Studio2 Read Me
 ===
 
 <span style=display:none; >[View as web page]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-studio2/ "view the files as apps." ) <input value="<< You are here" size=15 style="font:bold 11pt monospace;border-width:0;" ></span>  
 
-[WikiHouse]( http://www.wikihouse.cc/ )  
-WikiHouse is an open source building system. Many designers, collaborating to make it simple for everyone to design, print and assemble beautiful, low-energy homes, customised to their needs.
-
-This script is a first pass at enabling the WikiHouse designs to be viewable using free, open source software while online and hosted an a free platform.
+This script is a first pass at enabling the WikiHouse designs to be viewable using free, open source software while online and hosted on a free platform.
  
 You should be able to rotate, zoom and and pan the structure using your pointing device or one, two and three fingers.
 
@@ -39,13 +36,12 @@ Latest release: [Display WikiHouse Studio2]( http://WikiHouse.github.io/viewer-e
 ### Road Map
 
 * Obtain access to data for individual components
-	* rebuild as JSN/STL files
+* Rebuild as faster-loading JSON/STL files
 
 
 ### System Requirements
 
-In order to view the files on this site you will need a device and browser that provides good support for [WebGL](http://get.webgl.org/)
-WebGL is the JavaScript API for rendering interactive 3D graphics and 2D graphics within any compatible web browser without the use of plug-ins. 
+In order to view the files on this site you will need a device and browser that provides good support for [WebGL](http://get.webgl.org/) - the JavaScript API for rendering interactive 3D graphics and 2D graphics within any compatible web browser without the use of plug-ins. 
 
 Generally this means a computer with an Intel Core i5 processor or better with an external GPU such as one made by Nvidia. 
 Successful use of the apps on a phone or tablet is highly unlikely. 

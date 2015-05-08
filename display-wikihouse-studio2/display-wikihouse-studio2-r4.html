@@ -146,7 +146,7 @@
 					if ( child.material.map ) {
 
 						child.material.map.minFilter = child.material.map.magFilter = THREE.NearestFilter;
-						child.material.map.wrapS = child.material.map.wrapT = THREE.RepeatWrapping;
+//						child.material.map.wrapS = child.material.map.wrapT = THREE.RepeatWrapping;
 						child.material.map.wrapS = child.material.map.wrapT = THREE.ClampToEdgeWrapping
 
 					}
@@ -159,8 +159,14 @@
 
 			project.position.set( 0, 0, 3 );
 
-		} );
+		}, progessIndicator );
 
+
+		function progessIndicator( loaded ) {
+
+			msg.innerHTML = 'Loaded: ' + loaded.loaded;
+
+		}
 
 		raycaster = new THREE.Raycaster();
 		mouse = new THREE.Vector2();
@@ -238,7 +244,6 @@
 
 		camera.updateProjectionMatrix();
 
-
 	}
 
 
@@ -266,7 +271,7 @@
 		if ( intersects.length > 0 ) {
 
 			intersected = intersects[ 0 ].object;
-			intersected.material.color.setHex( Math.random() * 0xffffff );
+			if ( intersected.material.color ) intersected.material.color.setHex( Math.random() * 0xffffff );
 
 			headsUp.style.left = 50 + 0.5 * window.innerWidth + mouse.x * 0.5 * window.innerWidth + 'px';
 			headsUp.style.top = -10 + 0.5 * window.innerHeight - mouse.y * 0.5 * window.innerHeight + 'px';
