@@ -7,6 +7,9 @@ Display WikiHouse StepUp1 Read Me
 
 <span style=display:none; >[View as web page]( http://WikiHouse.github.io/viewer-experiments/index.html#display-wikihouse-stepup1/readme.md# "view the files as apps." ) <input value="<< You are here" size=15 style="font:bold 11pt monospace;border-width:0;" ></span>  
 
+
+<input type=button value='Source code on GitHub' onclick=window.location.href='http://github.com/wikihouse/viewer-experiments/tree/gh-pages/display-wikihouse-mallet2'; />
+
 This demo reads the StepUp_1.dxf file obtained from the WikiHouse Commons and translates the data into Three.js meshes.
 The data is displayed in the browser. Clicking on a mesh toggles its position from unassembled to assemble and back.
 Buttons are available to reset all components to start position or to assembled position.
@@ -22,6 +25,31 @@ The current focus is on creating a lively and informative presentation of the as
 
 Currently the assembled position are being input 'by eye' with the help of the limited closest vertex 'snap' point being displayed on screen.
 With each new revision, the process should become increasingly automated.  
+
+### Build Series
+The 'Build' series of files may grow into the specialty of creating new objects that are forks/clones/mini-me's 
+of the equivalent WikiHouse object directly from user input.
+
+[Build WikiHouse StepUp1 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/build-wikihouse-stepup1-r2.html )
+~ Not as flashy. Work-in-progress toward parameterization  
+
+[Build WikiHouse StepUp1 R1]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/build-wikihouse-stepup1-r1.html )
+~ Not as flashy. Work-in-progress toward parameterization  
+
+### Display Series
+The 'Display' series of files appear to be growing into the specialty of extracting data and measuring data in a variety of manner from the WikiHouse DXF files
+
+[Display WikiHouse StepUp1 R3]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r3.html )
+~ Not as flashy. Work-in-progress toward parameterization  
+
+[Display WikiHouse StepUp1 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r2.html )
+~ Not as flashy. Work-in-progress toward parameterization  
+
+[Display WikiHouse StepUp1 R1]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/latest/index.html ) 
+~ Starting to dance! Yay!  
+
+
+
 
 ### Issues
 The original data is formulated in millimeters and placed 40 meters along the X axis and 30 meters along the Y axis.
