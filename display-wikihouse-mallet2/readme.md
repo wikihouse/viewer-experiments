@@ -1,31 +1,33 @@
 ![Wikihouse logo]( http://avatars3.githubusercontent.com/u/4091108?v=3&s=100 )  
 _<small>[WikiHouse]( http://www.wikihouse.cc/ ) is an open source building system. Many designers, collaborating to make it simple for everyone to design, print and assemble beautiful, low-energy homes, customised to their needs.</small>_
 ***
-[WikiHouse Viewer Experiments]( http://wikihouse.github.io/viewer-experiments/ ) &raquo;
+[WikiHouse Viewer Experiments]( ../index.html ) &raquo;
 
 Display WikiHouse Mallet2 Read Me
 ===
 
 <span style=display:none; >[View as web page]( http://wikihouse.github.io/viewer-experiments/index.html#display-wikihouse-mallet2/readme.md# "view the files as apps." ) </span>  
 
-<iframe src=http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/display-wikihouse-mallet1-r1.html width=400 height=300></iframe>
-Display WikiHouse Mallet2 R1
+<iframe src=build-wikihouse-mallet2-r2.html width=640 height=480></iframe>
+Fullscreen: [Build WikiHouse Mallet2 R2]( build-wikihouse-mallet2-r2.html )
 
 Linux has a penguin. Apple has an apple. WikiHouse has a mallet.
 
+<input type=button value='Source code on GitHub' onclick=window.location.assign('http://github.com/wikihouse/viewer-experiments/tree/gh-pages/display-wikihouse-mallet2'); />
 
-[Source code on GitHub]( https://github.com/WikiHouse/viewer-experiments/tree/gh-pages/display-wikihouse-mallet2 )
 
 ### Build Series
 The 'Build' series of files may grow into the specialty of creating new objects that are forks/clones/mini-me's 
 of the equivalent WikiHouse object directly from user input.
 
 
-[Build WikiHouse Mallet2 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/build-wikihouse-mallet2-r2.html )
+[Build WikiHouse Mallet2 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/build-wikihouse-mallet2-r2.html )  
+
 * Just about completely parameterized
 * Can use simplification and code clean-up
 
-[Build WikiHouse Mallet2 R1]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/build-wikihouse-mallet2-r1.html )
+[Build WikiHouse Mallet2 R1]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/build-wikihouse-mallet2-r1.html )  
+
 * Work-in-progress toward parameterization 
 * Building the mallet from a list of vertices for each component
 

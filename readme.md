@@ -9,7 +9,7 @@ WikiHouse Viewer Experiments Read Me
 2015-05-03 ~ San Francisco. Hi, my name is Theo Armour. I was introduced to WikiHouse by my daughter [Alix]( http://nimblescooters.com/about-us/ ) and became instantly intrigued.
 What I like to do is grab data files that are locked up in hard disks and do my best to help them sing and dance on the web in 3D.
 
-Remember, it does take a while to warm up. Here's the first few steps... 
+Remember, it does take a while to warm up. Here are the first work-in-progress steps... 
 
 [Display WikiHouse Studio2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-studio2/latest/index.html )   
 ~ takes way too long to load but 'Exploded View' makes it worth the wait!  

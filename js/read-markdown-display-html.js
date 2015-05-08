@@ -36,3 +36,15 @@
 		info.innerHTML = new Showdown.converter().makeHtml( xmlHttp.responseText );
 
 	}
+
+/*
+
+View only on GitHub
+<span style=display:none; >[View as web page]( http://wikihouse.github.io/viewer-experiments/ "view the file as a web page." ) </span>  
+
+
+View the following only on the web page
+<input type=button value='Source code on GitHub' onclick=window.location.assign('http://github.com/wikihouse/viewer-experiments/tree/gh-pages/'); />
+
+
+*/
