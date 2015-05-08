@@ -6,7 +6,7 @@ _<small>[WikiHouse]( http://www.wikihouse.cc/ ) is an open source building syste
 Display WikiHouse Mallet2 Read Me
 ===
 
-<span style=display:none; >[View as web page]( http://wikihouse.github.io/viewer-experiments/index.html#display-wikihouse-mallet2/readme.md# "view the files as apps." ) </span>  
+<span style=display:none; >[View as web page]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/ "view the files as apps." ) </span>  
 
 <iframe src=build-wikihouse-mallet2-r2.html width=640 height=480></iframe>
 Fullscreen: [Build WikiHouse Mallet2 R2]( build-wikihouse-mallet2-r2.html )
