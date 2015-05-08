@@ -28,4 +28,4 @@ Remember, it does take a while to warm up. Here's the first few steps...
 [Read Me]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/ )
 
 
-<input type=button value='Source code on GitHub' onclick=window.location.assign('http://github.com/wikihouse/viewer-experiments/'); />
+<input type=button value='Source code on GitHub' onclick=window.location.assign('http://github.com/wikihouse/viewer-experiments/tree/gh-pages/'); />
