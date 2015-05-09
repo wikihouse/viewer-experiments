@@ -1,39 +1,26 @@
 
-	var xmlHttp;
-	var info;
-
-	var thing = document.body.appendChild( document.createElement( 'script' ) );
-	thing.onload = init;
-	thing.src = 'http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js'; 
+	var script = document.body.appendChild( document.createElement( 'script' ) );
+	script.onload = init;
+	script.src = 'http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js'; 
 
 	function init() {
 
-		document.body.style.cssText = ' font: bold 12pt monospace; left: 0; margin: 0 auto; position: absolute; right: 0; max-width:900px;';
+		document.body.style.cssText = ' font: bold 12pt monospace; left: 0; margin: 0 auto; max-width:900px; position: absolute; right: 0; ';
 
-		info = document.body.appendChild( document.createElement( 'div' ) );
+		var info = document.body.appendChild( document.createElement( 'div' ) );
 
-		fileName = location.hash ? location.hash.split( '#' )[1] : 'readme.md';
-
-		requestFile( fileName );
-
+		var fileName = location.hash ? location.hash.split( '#' )[1] : 'readme.md';
 		document.title = document.title ? document.title : fileName;
 
-	}
-
-	function requestFile( fileName ) {
-
-		xmlHttp = new XMLHttpRequest();
+		var xmlHttp = new XMLHttpRequest();
 		xmlHttp.open( 'GET', fileName, true );
-		xmlHttp.onreadystatechange = callback;
+		xmlHttp.onreadystatechange = function() {
+
+			info.innerHTML = xmlHttp.readyState === 4  ? new Showdown.converter().makeHtml( xmlHttp.responseText ) : '';
+
+		};
+
 		xmlHttp.send( null );
-
-	}
-
-	function callback() {
-
-		if ( xmlHttp.readyState != 4  ) { return; }
-
-		info.innerHTML = new Showdown.converter().makeHtml( xmlHttp.responseText );
 
 	}
 
@@ -44,7 +31,7 @@ View only on GitHub
 
 
 View the following only on the web page
-<input type=button value='Source code on GitHub' onclick=window.location.assign('http://github.com/wikihouse/viewer-experiments/tree/gh-pages/'); />
+<input type=button value='Source code on GitHub' onclick=window.location.href='http://github.com/wikihouse/viewer-experiments/tree/gh-pages/'; />
 
 
 */

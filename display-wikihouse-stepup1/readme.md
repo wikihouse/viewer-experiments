@@ -10,21 +10,6 @@ Display WikiHouse StepUp1 Read Me
 
 <input type=button value='Source code on GitHub' onclick=window.location.href='http://github.com/wikihouse/viewer-experiments/tree/gh-pages/display-wikihouse-mallet2'; />
 
-This demo reads the StepUp_1.dxf file obtained from the WikiHouse Commons and translates the data into Three.js meshes.
-The data is displayed in the browser. Clicking on a mesh toggles its position from unassembled to assemble and back.
-Buttons are available to reset all components to start position or to assembled position.
-Every time a component is clicked the display notes details regarding the component.
-
-You should be able to rotate, zoom and and pan the structure using your pointing device or one, two and three fingers.
-
-The DXF file was translated from AutoCAD 2007 DXF back to AutoCAD R12 DXF using LibreCAD. 
-A future revision will directly read data in AutoCAD 2007 DXF format.
-
-No attempt has been made to create a 'pretty' rendering. 
-The current focus is on creating a lively and informative presentation of the assembly process.
-
-Currently the assembled position are being input 'by eye' with the help of the limited closest vertex 'snap' point being displayed on screen.
-With each new revision, the process should become increasingly automated.  
 
 ### Build Series
 The 'Build' series of files may grow into the specialty of creating new objects that are forks/clones/mini-me's 
@@ -39,6 +24,21 @@ of the equivalent WikiHouse object directly from user input.
 ### Display Series
 The 'Display' series of files appear to be growing into the specialty of extracting data and measuring data in a variety of manner from the WikiHouse DXF files
 
+These demos reads the StepUp_1.dxf file obtained from the WikiHouse Commons and translate the data into Three.js meshes.
+The data is displayed in the browser. Clicking on a mesh toggles its position from unassembled to assemble and back.
+Buttons are available to reset all components to start position or to assembled position.
+Every time a component is clicked the display notes details regarding the component.
+
+You should be able to rotate, zoom and and pan the structure using your pointing device or one, two and three fingers.
+
+
+No attempt has been made to create a 'pretty' rendering. 
+The current focus is on creating a lively and informative presentation of the assembly process.
+
+Currently the assembled position are being input 'by eye' with the help of the limited closest vertex 'snap' point being displayed on screen.
+With each new revision, the process should become increasingly automated.  
+
+
 [Display WikiHouse StepUp1 R3]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r3.html )
 ~ Not as flashy. Work-in-progress toward parameterization  
 
@@ -47,6 +47,9 @@ The 'Display' series of files appear to be growing into the specialty of extract
 
 [Display WikiHouse StepUp1 R1]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r1.html ) 
 ~ Starting to dance! Yay!  
+
+* The DXF file was translated from AutoCAD 2007 DXF back to AutoCAD R12 DXF using LibreCAD. 
+* Afuture revision will directly read data in AutoCAD 2007 DXF format.
 
 
 ### Issues

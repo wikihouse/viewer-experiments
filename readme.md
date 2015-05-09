@@ -15,10 +15,10 @@ Remember, it does take a while to warm up. Here are the first work-in-progress s
 ~ takes way too long to load but 'Exploded View' makes it worth the wait!  
 [Read Me]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-studio2/ )
 
-[Display WikiHouse StepUp1 R1]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/latest/index.html ) 
+[Build WikiHouse StepUp1 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/build-wikihouse-stepup1-r2.html )
+~ WIP toward parameterization
+[Display WikiHouse StepUp1 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r2.html )
 ~ Starting to dance! Yay!  
-[Display WikiHouse StepUp1 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r3.html )
-~ Not as flashy. Work-in-progress toward parameterization  
 [Read Me]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/ )
 
 [Display WikiHouse Mallet2 R3]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/build-wikihouse-mallet2-r3.html ) ~ 2015-05-08 ~ Work-in-progress toward parameterization    

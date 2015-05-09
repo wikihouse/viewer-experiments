@@ -134,6 +134,8 @@
 		loader.options.convertUpAxis = true;
 		loader.load( fileName, function colladaReady( collada ) {
 
+			msg.innerHTML = 'Processing complete.';
+
 			project = collada.scene;
 			scene.add( project );
 			project.traverse( function ( child ) {
@@ -164,8 +166,15 @@
 
 		function progessIndicator( loaded ) {
 
-			msg.innerHTML = 'Loaded: ' + loaded.loaded;
+			if ( loaded.loaded > 13000000 ) {
 
+			msg.innerHTML = 'File loaded. Now processing ';
+
+			} else {
+
+				msg.innerHTML = 'Loaded: ' + loaded.loaded;
+
+			}
 		}
 
 		raycaster = new THREE.Raycaster();
