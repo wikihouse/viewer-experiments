@@ -22,7 +22,7 @@ of the equivalent WikiHouse object directly from user input.
 
 [Build WikiHouse Mallet2 R3]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/build-wikihouse-mallet2-r3.html )  
 
-* 2015-05-08 ~ 3 out of 5 sliders added
+* 2015-05-10 ~ 5 sliders added
 * Simplification and code clean-up
 
 
