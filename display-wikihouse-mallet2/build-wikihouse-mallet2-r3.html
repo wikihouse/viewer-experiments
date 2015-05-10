@@ -37,6 +37,8 @@
 			'<div id=msg >Building the mallet using parameters for each component</div>' +
 			'<p><input id=inpHeadWidth type=range min=60 max=500 value=100 step=10 /> <span id=heWi >Head width = 150 </span></p>' +
 			'<p><input id=inpHeadHeight type=range min=60 max=500 value=150 step=10 /> <span id=heHe >Head height = 100 </span></p>' +
+			'<p><input id=inpHandleLength type=range min=150 max=500 value=260 step=10 /> <span id=haLe >Handle length = 250 </span></p>' +
+			'<p><input id=inpHandleWidth type=range min=10 max=70 value=40 step=2 /> <span id=haWi >Handle width = 40 </span></p>' +
 			'<p><input id=inpBevel type=range min=0.5 max=20 value=8 step=1 /> <span id=bev >Bevel = 8</span></p>' +
 		'';
 
@@ -53,6 +55,22 @@
 
 			heHe.innerHTML = 'Head height = ' + inpHeadWidth.value;
 			headHeight = parseInt( inpHeadHeight.value, 10 );
+			buildMallet();
+
+		}
+
+		inpHandleLength.onmousemove = function() {
+
+			haLe.innerHTML = 'Handle length = ' + inpHandleLength.value;
+			handleLength = parseInt( inpHandleLength.value, 10 );
+			buildMallet();
+
+		}
+
+		inpHandleWidth.onmousemove = function() {
+
+			haWi.innerHTML = 'HandleWidth = ' + inpHandleWidth.value;
+			handleWidth = parseInt( inpHandleWidth.value, 10 );
 			buildMallet();
 
 		}
@@ -85,16 +103,19 @@
 		geometry = new THREE.BoxGeometry( 500, 20, 500 );
 		material = new THREE.MeshNormalMaterial();
 		mesh = new THREE.Mesh( geometry, material );
-		mesh.position.set( 0, -100, 0 );
+		mesh.position.set( 0, -150, 0 );
 		scene.add( mesh );
 
 		mesh = new THREE.GridHelper( 250, 10 );
-		mesh.position.set( 0, -89, 0 );
+		mesh.position.set( 0, -139, 0 );
 		scene.add( mesh );
 
 // axes
 		var axisHelper = new THREE.AxisHelper( 50 );
 		scene.add( axisHelper );
+
+
+		setRandomGradientBackground();
 
 		buildMallet();
 
@@ -192,6 +213,17 @@
 
 	}
 
+	function setRandomGradientBackground() {
+    
+		var col1 = Math.random().toString(16).slice(2, 8);
+		var col2 = Math.random().toString(16).slice(2, 8);
+		var col3 = Math.random().toString(16).slice(2, 8);
+		var x = ( Math.random() * window.innerWidth ).toFixed(0);
+		var y = ( Math.random() * window.innerHeight ).toFixed(0);
+
+		document.body.style.backgroundImage = 'radial-gradient( circle farthest-corner at ' + x + 'px ' + y + 'px, #' + col1 + ' 0%, #' + col2 + ' 50%, #' + col3 + ' 100%)';
+
+	}
 
 	function v( x, y ){ return new THREE.Vector2( x, y ); }
 

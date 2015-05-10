@@ -3,7 +3,7 @@ _<small>[WikiHouse]( http://www.wikihouse.cc/ ) is an open source building syste
 ***
 [WikiHouse Viewer Experiments]( http://wikihouse.github.io/viewer-experiments/index.html ) &raquo;
 
-Display WikiHouse Mallet2 Read Me
+[Display WikiHouse Mallet2 Read Me]( index.html )
 ===
 
 <span style=display:none; >[View as web page]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/ "view the files as apps." ) </span>  
@@ -37,10 +37,10 @@ of the equivalent WikiHouse object directly from user input.
 * Building the mallet from a list of vertices for each component
 
 ### Display Series
-The 'Display' series of files appear to be growing into the specialty of extracting data and measuring data in a variety of manner from the WikiHouse DXF files
+The 'Display' series of files appear to be growing into the specialty of extracting data and measuring data in a variety of manners
+ from the WikiHouse DXF files. Once gathered the data may be used to help with creating parameterized scripts
 
 [Display WikiHouse Mallet2 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/display-wikihouse-mallet2-r2.html )
- 
  
 * 2015-05-03 ~ This demo loads an AutoCAD 2007 formatted DXF files and displays the data
 	1. Nested and ready to be cut out - in blue. 
@@ -53,5 +53,5 @@ The 'Display' series of files appear to be growing into the specialty of extract
 
 * 2015-04-30 ~ This is where things all started 
 * Loads the WikiHouse DXF file - translated back to R12 format using LibreCAD - and turns the data into 3D
-* Click on component to display basic info in heads-up display at cursor position  
+* Click on a mallet component to display basic info in heads-up display at cursor position  
 
