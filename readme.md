@@ -12,12 +12,12 @@ What I like to do is grab data files that are locked up in hard disks and do my 
 Remember, it does take a while to warm up. Here are the first work-in-progress steps... 
 
 [Display Studio2 Read Me]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-studio2/ )  
-[Display WikiHouse Studio2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-studio2/latest/index.html ) ~ takes way too long to load but 'Exploded View' makes it worth the wait!  
+[Display WikiHouse Studio2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-studio2/latest/index.html ) ~ takes too long to load but 'Exploded View' makes it worth the wait!  
 
 
-[Display step Up Read Me]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/ )  
-[Build WikiHouse StepUp1 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/build-wikihouse-stepup1-r2.html )
-~ WIP toward parameterization
+[Display Step Up Read Me]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/ )  
+[Build WikiHouse StepUp1 R3]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/build-wikihouse-stepup1-r3.html )
+~ WIP toward parameterization  
 [Display WikiHouse StepUp1 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r2.html )
 ~ Starting to dance! Yay!  
 
@@ -25,7 +25,7 @@ Remember, it does take a while to warm up. Here are the first work-in-progress s
 [Dislay Mallet Read Me]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/ )  
 [Display WikiHouse Mallet2 R3]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/build-wikihouse-mallet2-r3.html ) ~ 2015-05-08 ~ Work-in-progress toward parameterization    
 [Display WikiHouse Mallet2 R1]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/display-wikihouse-mallet1-r1.html ) 
-~ 2015-04-30 ~ This is where things have tended to start  
+~ 2015-04-30 ~ This is where things started  
 
 
 <input type=button value='Source code on GitHub' onclick=window.location.href='http://github.com/wikihouse/viewer-experiments/tree/gh-pages/'; />

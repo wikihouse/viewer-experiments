@@ -7,6 +7,8 @@ Display WikiHouse Studio2 Read Me
 
 <span style=display:none; >[View as web page]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-studio2/ "view the files as apps." ) <input value="<< You are here" size=15 style="font:bold 11pt monospace;border-width:0;" ></span>  
 
+Latest release: [Display WikiHouse Studio2]( http://WikiHouse.github.io/viewer-experiments/display-wikihouse-studio2/latest/index.html )
+
 This script is a first pass at enabling the WikiHouse designs to be viewable using free, open source software while online and hosted on a free platform.
  
 You should be able to rotate, zoom and and pan the structure using your pointing device or one, two and three fingers.
@@ -15,9 +17,7 @@ The structure is set up in the air so that you may inspect the underside of the 
 
 There are a number of issues to be resolved - particularly the long load times. 
 
-Latest release: [Display WikiHouse Studio2]( http://WikiHouse.github.io/viewer-experiments/display-wikihouse-studio2/latest/index.html )
-
-[Source code on GitHub]( https://github.com/WikiHouse/viewer-experiments/tree/gh-pages/display-wikihouse-studio2 )
+<input type=button value='Source code on GitHub' onclick=window.location.href='https://github.com/WikiHouse/viewer-experiments/tree/gh-pages/display-wikihouse-studio2'; />
 
 ### Features
 
@@ -32,6 +32,7 @@ Latest release: [Display WikiHouse Studio2]( http://WikiHouse.github.io/viewer-e
 	* Will eventually display link to spec clause, IFC, BofM etc
 * Background is three circular gradients with random colors
 * Slide-out menu enables basic operation on mobile device
+* Loading progress indicates how many bytes have been loaded 
 
 ### Road Map
 
@@ -70,6 +71,7 @@ All design information shared in the WikiHouse commons is shared under a CC-BY-S
 * R4
 * Add slide out menu
 * Adds Section View, Plan View and Reset View
+* Adds loading progress indication
 
 2015-05-02 ~ Theo
 
