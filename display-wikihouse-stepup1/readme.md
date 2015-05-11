@@ -15,11 +15,19 @@ Display WikiHouse StepUp1 Read Me
 The 'Build' series of files may grow into the specialty of creating new objects that are forks/clones/mini-me's 
 of the equivalent WikiHouse object directly from user input.
 
-[Build WikiHouse StepUp1 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/build-wikihouse-stepup1-r2.html )
-~ Work-in-progress toward parameterization  
+[Build WikiHouse StepUp1 R3]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/build-wikihouse-stepup1-r3.html )
+
+* Update 2015-05-10 ~ Every component is a function but most functions are still built using lists of coordinates
+* Created 2015-05-08 ~ Work-in-progress toward parameterization  
+
+
+[Build WikiHouse StepUp1 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/build-wikihouse-stepup1-r2.html )  
+
+* Created 2015-05-05 ~ Work-in-progress toward parameterization  
 
 [Build WikiHouse StepUp1 R1]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/build-wikihouse-stepup1-r1.html )
-~ Work-in-progress toward parameterization  
+
+* Created 2015-05-04 ~ Work-in-progress toward parameterization  
 
 ### Display Series
 The 'Display' series of files appear to be growing into the specialty of extracting data and measuring data in a variety of manner from the WikiHouse DXF files
@@ -40,16 +48,18 @@ With each new revision, the process should become increasingly automated.
 
 
 [Display WikiHouse StepUp1 R3]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r3.html )
-~ Not as flashy. Work-in-progress toward parameterization  
+
+* Created 2015-05-03 ~ Not as flashy. Work-in-progress toward parameterization  
 
 [Display WikiHouse StepUp1 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r2.html )
-~ Dancing even better
+
+* Created 2015-05-02 ~ Dancing even better
 
 [Display WikiHouse StepUp1 R1]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r1.html ) 
-~ Starting to dance! Yay!  
+~ 2015-05-01 ~ Starting to dance! Yay!  
 
 * The DXF file was translated from AutoCAD 2007 DXF back to AutoCAD R12 DXF using LibreCAD. 
-* Afuture revision will directly read data in AutoCAD 2007 DXF format.
+* A future revision will directly read data in AutoCAD 2007 DXF format.
 
 
 ### Issues
@@ -60,6 +70,10 @@ These idiosyncracies are making the automation process more interesting.
 
 
 ### Change Log
+
+2015-05-10 ~ Theo
+
+* Changes now being listed per file under each file link
 
 2015-05-03 ~ Theo
 

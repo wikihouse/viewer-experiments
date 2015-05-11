@@ -15,6 +15,7 @@
 	var xmlHttp;
 
 	var components = [];
+	var polylineIDs = [];
 
 	var raycaster;
 	var mouse;
@@ -110,24 +111,27 @@
 			var l = lines[ i ];
 
 
-			if ( l === 'AcDbPolyline' ) {
+			if ( l === 'LWPOLYLINE' ) {
 
 				polylines[ ++count ] = [];
+
+				polylineIDs.push( lines[ i + 2 ] )
 
 			} else if ( count > -1 && l === ' 10' ) {
 
 				polylines[ count ].push( v2( + lines[ i + 1] , + lines[ i + 3 ] ) ); // +  sign forces string to number
 
-			} else if ( count > 0 && l === 'ENDSEC' ) {
+			} else if ( count > 0 && l === ' 0' ) {
 
 				break;
+
 			}
 
 		}
 
 //console.log( polylines );
 
-		omissions = [ 24, 31, 32, 47, 48, 49, 50 ];
+		omissions = [ 24, 30, 31, 32, 47, 48, 49, 50 ];
 
 		for ( var i = 0; i < polylines.length ; i++ ) {
 
@@ -289,6 +293,7 @@
 
 			headsUp.innerHTML  = '<h3 style="margin:0;" >Data Viewer</h3>' +
 				'componentID:' + intersected.userData.componentID + '<br>' +
+				'Polyline ID:' + polylineIDs[ intersected.userData.componentID ] + '<br>' +
 				'Three.js id:' + intersected.id + '<br>' +
 				'UUID:' + intersected.uuid + '<br>' +
 				'Type: ' + intersected.type + '<br>' +

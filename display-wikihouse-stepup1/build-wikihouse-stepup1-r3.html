@@ -11,15 +11,12 @@
 <script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
 <script>
 
-  
-	var topStep = new THREE.Object3D();
-	var bottomStep = new THREE.Object3D();
-	var spreader = new THREE.Object3D();
-	var wedge = new THREE.Object3D();
-	var peg = new THREE.Object3D();
-	var side = new THREE.Object3D();
 
 	var thickness = 18;
+	var cutDepth = 6;
+	var cutWidth = 10;
+	tenon = 12;
+
 	var pi = Math.PI;
 
 	var css, info, stats, renderer, scene, camera, controls;
@@ -50,12 +47,12 @@
 		document.body.appendChild( renderer.domElement );
 
 		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
-		camera.position.set( 500, 500, 500 );
+		camera.position.set( 900, 900, 900 );
 
 		controls = new THREE.OrbitControls( camera, renderer.domElement );
 
 		scene = new THREE.Scene();
-
+/*
 // ground box
 		geometry = new THREE.BoxGeometry( 500, 20, 500 );
 		material = new THREE.MeshNormalMaterial();
@@ -66,33 +63,111 @@
 		mesh = new THREE.GridHelper( 250, 10 );
 		mesh.position.set( 0, -289, 0 );
 		scene.add( mesh );
-
+*/
 // axes
 		var axisHelper = new THREE.AxisHelper( 50 );
 		scene.add( axisHelper );
 
-		scene.add( topStep );
-		buildTopStep();
+// Step Up
 
-		scene.add( bottomStep );
-		buildBottomStep();
+		back1 = buildBack();
+		back1.position.set( -350, 200, -500 );
+		scene.add( back1 );
 
-		scene.add( spreader );
-		buildSpreader();
+		back2 = buildBack();
+		back2.rotation.z = Math.PI;
+		back2.position.set( 400, 400, -500 );
+		scene.add( back2 );
 
-		scene.add( wedge );
-		buildWedge();
+		stepTop = buildStepTop();
+		stepTop.position.set( 250, 460, -500 );
+		scene.add( stepTop );
 
-		scene.add( peg );
-		buildPeg();
+		stepBottom = buildStepBottom();
+		stepBottom.rotation.z = -Math.PI / 2;
+		stepBottom.position.set( 430, 430, -500 );
+		scene.add( stepBottom );
 
-		scene.add( side );
-		buildSide();
+		for ( var y = 0; y < 3; y++ ) {
+			for ( var x = 0; x < 2; x++ ) {
+
+				wedge = buildWedge();
+				wedge.position.set( 430 + 80 * x, -320 + -70 * y, -500 );
+				scene.add( wedge );
+
+			}
+		}
+
+		for ( var y = 0; y < 4; y++ ) {
+
+			peg = buildPeg();
+			peg.position.set( -350, 100 + -70 * y, -500 );
+			scene.add( peg );
+
+		}
+
+		side1 = buildSide();
+		side1.rotation.z = - pi / 2;
+		side1.position.set( -350, -250, -500 );
+		scene.add( side1 );
+
+		side2 = buildSide();
+		side2.rotation.x = pi;
+		side2.position.set( 50, -150, -500 );
+		scene.add( side2 );
+
+		spreader1 = buildSpreader();
+		spreader1.rotation.z = - pi / 2;
+		spreader1.position.set( 620, -200, -500 );
+		scene.add( spreader1 );
+
+		spreader2 = buildSpreader();
+		spreader2.rotation.z = - pi / 2;
+		spreader2.position.set( 720, -200, -500 );
+		scene.add( spreader2 );
+
+	}
+
+	function buildBack() {
+
+		var back = new THREE.Object3D();
+
+		var path = [
+			[ 0, 0 ], [ 75, 0 ], [ 0, 120 ], [ -5, 0 ], [ 0, 10 ], [ 30, 0 ], [ 0, -10 ], [ -5, 0 ], [ 0, -120 ], [ 40, 0 ], [ 50, 250], [ 180, 0 ],
+				[ 50, -250 ], [ 40, 0 ], [ 0, 120 ], [ -5, 0 ], [ 0, 10 ], [ 30, 0 ], [ 0, -10 ], [ -5, 0 ], [ 0, -120 ], [ 75, 0 ], 
+			[ 0, 505 ], 
+			[-40, 0 ], [ 0, -5 ], [ -10, 0 ], [ 0, 25 ], [ -80, 0 ], [ -5, -40 ], [ -40, 0 ], [ -5, 20 ], [ -200, 0 ], [ -5, -20 ], [ -40, 0 ], 
+				[ -5, 40 ], [ -80, 0 ], [ 0, -25 ], [ -10, 0 ], [ 0, 5 ], [ -40, 0 ],
+			[ 0, -505 ]
+
+		];
+
+		var boundary = buildVerticesByPairs( path );
+
+		holes = [];
+
+		holes.push( drawMortice( { x: 10, y: 270 } ) );
+		holes.push( drawMortice( { x: 270, y: 270 } ) );
+		holes.push( drawMortice( { x: 500, y: 270 } ) );
+
+		holes.push( drawMortice( { x: 10, y: 470 } ) );
+		holes.push( drawMortice( { x: 270, y: 470 } ) );
+		holes.push( drawMortice( { x: 510, y: 470 } ) );
+
+		holes.push( drawBoneI( 1, { x: 75, y: 300 } ) );
+		holes.push( drawBoneI( 1, { x: 445, y: 300 } ) );
+
+		back.add( drawPolyline( boundary, { holes: holes } ) ); 
+
+		return back;
+
 
 	}
 
 
-	function buildBottomStep( ) {
+	function buildStepBottom( ) {
+
+		var stepBottom = new THREE.Object3D();
 
 		var path = [ 55, 100, -5, 20, 30, -20, -5, -100, 400, 100, -5, 20, 30, -20, -5, -100, 55, 365, -550, -365 ];
 
@@ -100,16 +175,18 @@
 
 		holes = [];
 
-		holes.push( buildBoneI( 1, { x: 50, y: 200 } ) );
-		holes.push( buildBoneI( 1, { x: 470, y: 200 } ) );
+		holes.push( drawBoneI( 1, { x: 50, y: 200 } ) );
+		holes.push( drawBoneI( 1, { x: 470, y: 200 } ) );
 
-		bottomStep.add( drawPolyline( boundary, { holes: holes } ) ); 
+		stepBottom.add( drawPolyline( boundary, { holes: holes } ) ); 
 
-		bottomStep.position.set( -250, -100, 100 );
+		return stepBottom;
 
 	}
 
-	function buildTopStep() {
+	function buildStepTop() {
+
+		var stepTop = new THREE.Object3D();
 
 		path = [ [ 0, 0 ], [ 550, 0 ], [ 0, 250 ], [ -550, 0 ] ];
 
@@ -117,31 +194,36 @@
 
 		holes = [];
 
-		holes.push( buildBoneI( 0, { x: 100, y: 200 } ) );
-		holes.push( buildBoneI( 0, { x: 350, y: 200 } ) );
+		holes.push( drawBoneI( 0, { x: 100, y: 200 } ) );
+		holes.push( drawBoneI( 0, { x: 350, y: 200 } ) );
 
-		holes.push( buildBoneL( 0, { x: 100, y: 50 } ) );
+		holes.push( buildBoneL( 0, { x: 100, y: 20 } ) );
 		holes.push( buildBoneL( 1, { x: 350, y: 50 } ) );
  
-		topStep.add( drawPolyline( boundary, { holes: holes } ) ); 
+		stepTop.add( drawPolyline( boundary, { holes: holes } ) ); 
 
-		topStep.position.set( -350, -100, 200 )
+		return stepTop;
+
 	}
 
 	function buildSide() {
 
-		var path = [ 550, 100, -190, 10, 5, 245, -5, 10, 150, 100, -150, 10, 5, 120, -100, -120, -10, 5, -200, -5, -10, 200, -100  ];
+		var side = new THREE.Object3D();
+
+		var path = [ 550, 100, -190, 10, 5, 245, -5, 10, 150, 100, -150, 10, 5, 120, -50, -25, -10, 5, -100, -300, -250  ];
 
 		var boundary = buildVerticesBySingles( path );
 
 		side.add( drawPolyline( boundary, 0 ) ); 
 
-		side.position.set( -350, -300, -150 );
+		return side;
 
 	}
 
 
 	function buildSpreader() {
+
+		var spreader = new THREE.Object3D();
 
 		var path = [ 
 			10, -12, 30, 20, 10, -5, 200, 5, 10, -20, 30, 20, 10, -5, 200, 5, 10, -20, 30, 12, 10,
@@ -154,13 +236,14 @@
 
 		spreader.add( drawPolyline( boundary ) ); 
 
-		spreader.position.set( -350, 0, 300 );
+		return spreader;
 
 	}
 
 
 	function buildWedge() {
 
+		var wedge = new THREE.Object3D();
 		var width = 50;
 		var height = 35;
 		var delta = 5;
@@ -171,13 +254,14 @@
 
 		wedge.add( drawPolyline( boundary, 0 ) ); 
 
-		wedge.position.set( -50, 200, 300 );
+		return wedge;
 
 	}
 
 
 	function buildPeg() {
 
+		var peg = new THREE.Object3D();
 		var width = 94;
 		var height = 50;
 		var delta = 5;
@@ -188,25 +272,38 @@
 
 		peg.add( drawPolyline( boundary, 0 ) ); 
 
-		peg.position.set( 50, 200, 300 );
+		return peg;
+
+	}
+
+	function drawMortice( parameters ) {
+
+		width = 26;
+		height = thickness
+
+		path = [ width, height, -width, -height ];
+
+		vertices = buildVerticesBySingles( path, parameters );
+
+		return vertices;
 
 	}
 
 
-
-
-	function buildBoneI( index, parameters ) {
+	function drawBoneI( index, parameters ) {
 
 		var paths = [];
+		widthEnd = thickness + 2 * cutDepth;
 
-		paths[ 0]  = [ 12, -5, 108, 5, 12, -30, -12, 5, -108, -5, -12, 30 ];
+		width0 = 132 - 2 * tenon; 
 
-		width = 30;
-		height = 132;
-		delta = 5;
-		tenon = 12;
+//horizontal
+		paths[ 0] = [ tenon, -cutDepth, width0, cutDepth, tenon, -widthEnd, -tenon, cutDepth, -width0, -cutDepth, -tenon, widthEnd ];
 
-		paths[ 1 ] = [ width, tenon, -delta, height - tenon, delta, tenon, -width, -tenon, delta, -height + tenon, -delta, -tenon ];   
+// vertical
+		height1 = 132;
+
+		paths[ 1 ] = [ widthEnd, tenon, -cutDepth, height1 - tenon, cutDepth, tenon, -widthEnd, -tenon, cutDepth, -height1 + tenon, -cutDepth, -tenon ];   
 
 		vertices = buildVerticesBySingles( paths[ index ], parameters );
 
@@ -219,9 +316,9 @@
 
 		paths = [];
 
-		paths[ 0 ]  = [ 12, 5 , 108, -5, 12, 50, 5, 12, -30, -12, 5, -25, -100, 5, -12, -30 ];
+		paths[ 0 ]  = [ 30, 12, -5, 30, 100, -5, 12, 30, -12, -5, -108, 5, -12, -50, -5, -12  ];
 
-		paths[ 1 ]  = [ 12, 5 , 100, -25, -5, -12, 30, 12, -5, 50, -12, -5, -108, 5, -12 ];
+		paths[ 1 ]  = [ 12, 5 , 100, -25, -5, -12, 30, 12, -5, 50, -12, -5, -108, 5, -12, 5 ];
 
 		vertices = buildVerticesBySingles( paths[ index ], parameters  );
 
