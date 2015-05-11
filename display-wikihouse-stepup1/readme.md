@@ -2,14 +2,17 @@
 _<small>[WikiHouse]( http://www.wikihouse.cc/ ) is an open source building system. Many designers, collaborating to make it simple for everyone to design, print and assemble beautiful, low-energy homes, customised to their needs.</small>_
 ***
 [WikiHouse Viewer Experiments]( http://wikihouse.github.io/viewer-experiments/ ) &raquo;
-Display WikiHouse StepUp1 Read Me
+[Display WikiHouse StepUp1 Read Me]( index.html )
 ===
 
 <span style=display:none; >[View as web page]( http://WikiHouse.github.io/viewer-experiments/index.html#display-wikihouse-stepup1/readme.md# "view the files as apps." ) <input value="<< You are here" size=15 style="font:bold 11pt monospace;border-width:0;" ></span>  
 
-
 <input type=button value='Source code on GitHub' onclick=window.location.href='http://github.com/wikihouse/viewer-experiments/tree/gh-pages/display-wikihouse-mallet2'; />
 
+<iframe src=http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r2.html width=640 height=480 ></iframe>  
+Fulscreen: [Display Wikihouse StepUp1 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r2.html )
+
+* Not the latest, but still the prettiest
 
 ### Build Series
 The 'Build' series of files may grow into the specialty of creating new objects that are forks/clones/mini-me's 
