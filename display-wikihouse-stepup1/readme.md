@@ -11,12 +11,18 @@ _<small>[WikiHouse]( http://www.wikihouse.cc/ ) is an open source building syste
 Fulscreen: [Display Wikihouse StepUp1 R2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r2.html )
 
 * Not the latest, but still the prettiest
+* Click outside the text area to see some action - fullscreen is best
 
 <input type=button value='Source code on GitHub' onclick=window.location.href='http://github.com/wikihouse/viewer-experiments/tree/gh-pages/display-wikihouse-stepup1/'; />
 
 ### Build Series
-The 'Build' series of files may grow into the specialty of creating new objects that are forks/clones/mini-me's 
-of the equivalent WikiHouse object directly from user input.
+The 'Build' series of files seems to be growing into the specialty of creating new objects that are forks/clones/mini-me's 
+of the equivalent WikiHouse object directly from user input. In other words, creating WikiHose Objects via parameterized functions.
+
+[Build WikiHouse StepUp1 R4]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/build-wikihouse-stepup1-r4.html )  
+* Created 2015-05-13 ~ Fully parameterized. Click the sliders to change the overall dimensions
+* Lots of minor bugs - that will be fixed in due course
+
 
 [Build WikiHouse StepUp1 R3]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/build-wikihouse-stepup1-r3.html )
 
