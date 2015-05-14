@@ -20,6 +20,7 @@ The 'Build' series of files seems to be growing into the specialty of creating n
 of the equivalent WikiHouse object directly from user input. In other words, creating WikiHose Objects via parameterized functions.
 
 [Build WikiHouse StepUp1 R4]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/build-wikihouse-stepup1-r4.html )  
+
 * Created 2015-05-13 ~ Fully parameterized. Click the sliders to change the overall dimensions
 * Lots of minor bugs - that will be fixed in due course
 
