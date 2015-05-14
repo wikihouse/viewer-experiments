@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang=en >
 <head>
-<title>build-wikihouse-stepup-r3.html</title>
+<title>build-wikihouse-stepup-r4.html</title>
 <meta charset=utf-8 />
 <meta name=viewport content='width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0' />
 </head>
@@ -12,19 +12,25 @@
 <script>
 
 
-	var thickness = 18;
+	var thickness;
+	var width, widthDelta, widthDeltaHalf;
+	var depth, depthDelta, depthDepthHalf;
+	var height, heightDelta, heightDeltaHalf;
+
 	var cutDepth = 6;
 	var cutWidth = 10;
-	var face = thickness + 2 * cutDepth;
+	var face;
 	var morticeWidth = 26;
 	var upstand = 100;
-	tenon = 12;
+	var tenon = 12;
 
 	var pi = Math.PI;
 
 	var css, info, stats, renderer, scene, camera, controls;
 	var geometry, material, mesh;
 
+	var stepUp;
+	var edges;
 	var originMarker;
 
 	init();
@@ -38,13 +44,16 @@
 		'';
 
 		info = document.body.appendChild( document.createElement( 'div' ) );
-		info.style.cssText = 'margin: 20px; position: absolute; ';
+		info.style.cssText = 'margin: 0 20px; max-width: 250px; position: absolute; ';
 		info.innerHTML = '<h2><a href="" >' + document.title + '</a> - ' +
 			'<a id=i href=http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/ >&#x24D8;</a>' +
 			'</h2>' +
-			'<p>Building the SetUp using functions with list of vertices of boundaries and holes for each component</p>' +
-			'<p>2015-05-04 ~ 2015-05-10 ~ WIP</p>' +
-
+			'<p>Building the Step Up using parameterized functions for each component</p>' +
+			'<p>2015-05-04 ~ 2015-05-13 ~ WIP</p>' +
+			'<p>Thickness <input type=range id=inpThickness min=5 max=40 step=1 value=18 onclick=buildStepUp(); /></p>' +
+			'<p>Width <input type=range id=inpWidthDelta min=-100 max=200 step=1 value=0 onclick=buildStepUp(); /></p>' +
+			'<p>Depth <input type=range id=inpDepthDelta min=-50 max=300 step=1 value=0 onclick=buildStepUp(); /></p>' +
+			'<p>Height <input type=range id=inpHeightDelta min=-50 max=300 step=1 value=0 onclick=buildStepUp(); /></p>' +
 			'<div id=msg1 ></div>' +
 		'';
 
@@ -87,32 +96,59 @@
 		originMarker = new THREE.Mesh( geometry, material );
 //		scene.add( mesh );
 
+		buildStepUp();
+
+	}
+
+	function buildStepUp() {
+
+		scene.remove( stepUp );
+		scene.remove( edges );
+
+		thickness = parseFloat( inpThickness.value );
+		face = thickness + 2 * cutDepth;
+
+		widthDelta = parseFloat( inpWidthDelta.value );
+		widthDeltaHalf = 0.5 * widthDelta;
+		width = 550 + widthDelta;
+
+		depthDelta = parseFloat( inpDepthDelta.value );
+		depthDeltaHalf = 0.5 * depthDelta;
+		depth = 550 + depthDelta;
+
+		heightDelta = parseFloat( inpHeightDelta.value );
+		heightDeltaHalf = 0.5 * heightDelta;
+		height = 520 + heightDelta;
+
+		stepUp = new THREE.Object3D();
+		edges = new THREE.Object3D();
+
 // Step Up Cutting Template
 
 		back1 = buildBack();
 		back1.position.set( -350, 200, -500 );
-		scene.add( back1 );
+		stepUp.add( back1 );
 
 		back2 = buildBack();
 		back2.rotation.z = Math.PI;
-		back2.position.set( 400, 400, -500 );
-		scene.add( back2 );
+		back2.position.set( 400 + widthDelta, 400, -500 );
+		stepUp.add( back2 );
 
 		stepTop = buildStepTop();
-		stepTop.position.set( 250, 460, -500 );
-		scene.add( stepTop );
+		stepTop.position.set( 250 + widthDelta, 460, -500 );
+		stepUp.add( stepTop );
 
 		stepBottom = buildStepBottom();
 		stepBottom.rotation.z = -Math.PI / 2;
-		stepBottom.position.set( 430, 430, -500 );
-		scene.add( stepBottom );
+		stepBottom.position.set( 430 + widthDelta , 430, -500 );
+		stepUp.add( stepBottom );
 
 		for ( var y = 0; y < 3; y++ ) {
 			for ( var x = 0; x < 2; x++ ) {
 
 				wedge = buildWedge();
 				wedge.position.set( 430 + 80 * x, -320 + -70 * y, -500 );
-				scene.add( wedge );
+				stepUp.add( wedge );
 
 			}
 		}
@@ -121,69 +157,72 @@
 
 			peg = buildPeg();
 			peg.position.set( -350, 100 + -70 * y, -500 );
-			scene.add( peg );
+			stepUp.add( peg );
 
 		}
 
 		side1 = buildSide();
 		side1.rotation.z = - pi / 2;
 		side1.position.set( -350, -250, -500 );
-		scene.add( side1 );
+		stepUp.add( side1 );
 
 		side2 = buildSide();
 		side2.rotation.x = pi;
-		side2.position.set( 50, -150, -500 );
-		scene.add( side2 );
+		side2.position.set( 50, -150, -500 + thickness );
+		stepUp.add( side2 );
 
 		spreader1 = buildSpreader();
 		spreader1.rotation.z = - pi / 2;
 		spreader1.position.set( 620, -200, -500 );
-		scene.add( spreader1 );
+		stepUp.add( spreader1 );
 
 		spreader2 = buildSpreader();
 		spreader2.rotation.z = - pi / 2;
 		spreader2.position.set( 720, -200, -500 );
-		scene.add( spreader2 );
+		stepUp.add( spreader2 );
 
 // Step Up Assembled
 
 		assembledBack1 = buildBack();
 		assembledBack1.position.set( 0, 0, 500 );
-		scene.add( assembledBack1 );
+		stepUp.add( assembledBack1 );
 
 		assembledBack2 = buildBack();
 		assembledBack2.position.set( 0, 0, 570 );
-		scene.add( assembledBack2 );
+		stepUp.add( assembledBack2 );
 
 		AssembledSpreader1 = buildSpreader();
 		AssembledSpreader1.rotation.x = pi / 2;
-		AssembledSpreader1.position.set( 0, 290, 500 );
-		scene.add( AssembledSpreader1 );
+		AssembledSpreader1.position.set( 0, height - 230, 500 );
+		stepUp.add( AssembledSpreader1 );
 
 		AssembledSpreader2 = buildSpreader();
 		AssembledSpreader2.rotation.x = pi / 2;
-		AssembledSpreader2.position.set( 0, 490, 500);
-		scene.add( AssembledSpreader2 );
+		AssembledSpreader2.position.set( 0, height - 30, 500);
+		stepUp.add( AssembledSpreader2 );
 
 		AssembledSide1 = buildSide();
 		AssembledSide1.rotation.y = pi / 2;
-		AssembledSide1.position.set( 75, 0, 954 );
-		scene.add( AssembledSide1 );
+		AssembledSide1.position.set( 75, 0, 954 + depthDelta );
+		stepUp.add( AssembledSide1 );
 
 		AssembledSide2 = buildSide();
 		AssembledSide2.rotation.y = pi / 2;
-		AssembledSide2.position.set( 451, 0, 954 );
-		scene.add( AssembledSide2 );
+		AssembledSide2.position.set( width - 100, 0, 954 + depthDelta);
+		stepUp.add( AssembledSide2 );
 
 		assembledStepTop = buildStepTop();
 		assembledStepTop.rotation.x = -pi / 2;
-		assembledStepTop.position.set( 0, 503, 700 );
-		scene.add( assembledStepTop );
+		assembledStepTop.position.set( 0, height - thickness, 700 );
+		stepUp.add( assembledStepTop );
 
 		assembledStepBottom = buildStepBottom();
 		assembledStepBottom.rotation.x = pi / 2;
-		assembledStepBottom.position.set( 0, 250, 592 );
-		scene.add( assembledStepBottom );
+		assembledStepBottom.position.set( 0, 250 + heightDeltaHalf, 592 );
+		stepUp.add( assembledStepBottom );
+
+		scene.add( stepUp );
+		scene.add( edges );
 
 	}
 
@@ -194,13 +233,14 @@
 
 		var shoulder = thickness + cutDepth;
 		var upstand = 100 - cutWidth;
+
 		var path = [
-			[ 0, 0 ], [ 75, 0 ], [ 0, upstand ], [ -cutDepth, 0 ], [ 0, cutWidth ], [ face, 0 ], [ 0, -cutWidth ], [ -cutDepth, 0 ], [ 0, -upstand ], [ 40, 0 ], [ 50, 250 ], [ 180, 0 ],
-				[ 50, -250 ], [ 40, 0 ], [ 0, upstand ], [ -cutDepth, 0 ], [ 0, cutWidth ], [ face, 0 ], [ 0, -cutWidth ], [ -cutDepth, 0 ], [ 0, -upstand ], [ 75, 0 ], 
-			[ 0, 505 ], 
-			[-60, 0 ], [ 0, -cutDepth ], [ -cutWidth, 0 ], [ 0, shoulder ], [ -80, 0 ], [ -cutDepth, -40 ], [ -40, 0 ], [ -cutDepth, 20 ], [ -142, 0 ], [ -cutDepth, -20 ], [ -40, 0 ], 
+			[ 0, 0 ], [ 75, 0 ], [ 0, upstand ], [ -cutDepth, 0 ], [ 0, cutWidth ], [ face, 0 ], [ 0, -cutWidth ], [ -cutDepth, 0 ], [ 0, -upstand ], [ 40, 0 ], [ 50, 250 + heightDelta ], [ 180 + widthDelta, 0 ],
+				[ 50, -250  - heightDelta ], [ 40, 0 ], [ 0, upstand ], [ -cutDepth, 0 ], [ 0, cutWidth ], [ face, 0 ], [ 0, -cutWidth ], [ -cutDepth, 0 ], [ 0, -upstand ], [ 75, 0 ], 
+			[ 0, 505 + heightDelta], 
+			[-60, 0 ], [ 0, -cutDepth ], [ -cutWidth, 0 ], [ 0, shoulder ], [ -80, 0 ], [ -cutDepth, -40 ], [ -40, 0 ], [ -cutDepth, 20 ], [ -142 + -widthDelta, 0 ], [ -cutDepth, -20 ], [ -40, 0 ], 
 				[ -cutDepth, 40 ], [ -80, 0 ], [ 0, -shoulder ], [ -cutWidth, 0 ], [ 0, cutDepth ], [ -60, 0 ],
-			[ 0, -505 ]
+			[ 0, -505 - heightDelta ]
 
 		];
 
@@ -208,16 +248,16 @@
 
 		holes = [];
 
-		holes.push( drawMortice( { x: 10, y: 270 } ) );
-		holes.push( drawMortice( { x: 260, y: 270 } ) );
-		holes.push( drawMortice( { x: 500, y: 270 } ) );
+		holes.push( drawMortice( { x: 10, y: height - 50 } ) );
+		holes.push( drawMortice( { x: 260 + widthDeltaHalf, y: height - 50  } ) );
+		holes.push( drawMortice( { x: 500 + widthDelta, y: height - 50  } ) );
 
-		holes.push( drawMortice( { x: 10, y: 470 } ) );
-		holes.push( drawMortice( { x: 260, y: 470 } ) );
-		holes.push( drawMortice( { x: 510, y: 470 } ) );
+		holes.push( drawMortice( { x: 10, y: height - 250 } ) );
+		holes.push( drawMortice( { x: 260 + widthDeltaHalf, y: height - 250 } ) );
+		holes.push( drawMortice( { x: 510 + widthDelta, y: height - 250 } ) );
 
-		holes.push( drawBoneI( 1, { x: 70, y: 320 } ) );
-		holes.push( drawBoneI( 1, { x: 445, y: 320 } ) );
+		holes.push( drawBoneI( 1, { x: 70, y: height - 200 } ) );
+		holes.push( drawBoneI( 1, { x: 445 + widthDelta, y: height - 200 } ) );
 
 		back.add( drawPolyline( boundary, { holes: holes } ) );
 		back.add( originMarker.clone() );
@@ -232,14 +272,14 @@
 
 		var stepBottom = new THREE.Object3D();
 
-		var path = [ 75, 100, -cutDepth, 20, face, -20, -cutDepth, -100, 360, 100, -cutDepth, 20, face, -20, -cutDepth, -100, 75, 365, -550, -365 ];
+		var path = [ 75, 100, -cutDepth, 20, face, -20, -cutDepth, -100, 360 + widthDelta, 100, -cutDepth, 20, face, -20, -cutDepth, -100, 75, 365 + depthDelta, -width, -365 - depthDelta];
 
 		var boundary = buildVerticesBySingles( path );
 
 		holes = [];
 
-		holes.push( drawBoneI( 1, { x: 70, y: 190 } ) );
-		holes.push( drawBoneI( 1, { x: 445, y: 190 } ) );
+		holes.push( drawBoneI( 1, { x: 70, y: depth - 360 } ) );
+		holes.push( drawBoneI( 1, { x: width - 105, y: depth - 360 } ) );
 
 		stepBottom.add( drawPolyline( boundary, { holes: holes } ) ); 
 
@@ -251,17 +291,19 @@
 
 		var stepTop = new THREE.Object3D();
 
-		path = [ [ 0, 0 ], [ 550, 0 ], [ 0, 250 ], [ -550, 0 ] ];
+//		var width = 550 + widthDelta;
+
+		path = [ [ 0, 0 - depthDeltaHalf ], [ width, 0 ], [ 0, 250 + depthDeltaHalf ], [ -width, 0 ] ];
 
 		var boundary = buildVerticesByPairs( path );
 
 		holes = [];
 
 		holes.push( drawBoneI( 0, { x: 70, y: 205 } ) );
-		holes.push( drawBoneI( 0, { x: 352, y: 205} ) );
+		holes.push( drawBoneI( 0, { x: width - 200, y: 205} ) );
 
 		holes.push( buildBoneL( 0, { x: 70, y: 70 } ) );
-		holes.push( buildBoneL( 1, { x: 360, y: 102 } ) );
+		holes.push( buildBoneL( 1, { x: width - 190, y: 102 } ) );
  
 		stepTop.add( drawPolyline( boundary, { holes: holes } ) ); 
 
@@ -273,13 +315,13 @@
 
 		var side = new THREE.Object3D();
 		var upstand = 100;
-		var path = [ 550, upstand, -190, cutWidth, cutDepth, 200, -cutDepth, cutWidth, 150, upstand, -150, cutWidth, cutDepth, 93, -50, -26, -cutWidth, cutDepth, -57, -270, -65, -cutDepth, -cutWidth, 24, -upstand, -24, -cutWidth, cutDepth, -65 ];
+		var path = [ 550 + depthDelta, upstand, -190, cutWidth, cutDepth, 200 + heightDelta, -cutDepth, cutWidth, 150, upstand, -150, cutWidth, cutDepth, 93, -50, -26, -cutWidth, cutDepth, -57, -270 - heightDeltaHalf, -65 - depthDelta, -cutDepth, -cutWidth, 24, -upstand, -24, -cutWidth, cutDepth, -65 ];
 
 		var boundary = buildVerticesBySingles( path );
 
 		var holes = [];
 
-		holes.push( drawBoneI( 0, { x: 410, y: 390, width: 50 } ) );
+		holes.push( drawBoneI( 0, { x: depth - 140, y: height - 130, width: 50 } ) );
 
 		side.add( drawPolyline( boundary, { holes: holes } ) ); 
 
@@ -297,9 +339,9 @@
 		var shoulder = thickness + cutDepth;
 
 		var path = [ 
-			cutWidth, -12, morticeWidth, shoulder, cutWidth, -cutDepth, 200, cutDepth, cutWidth, -shoulder, morticeWidth, shoulder, cutWidth, -cutDepth, 200, cutDepth, cutWidth, -shoulder, morticeWidth, 12, cutWidth,
+			cutWidth, -12, morticeWidth, shoulder, cutWidth, -cutDepth, 200 + widthDeltaHalf, cutDepth, cutWidth, -shoulder, morticeWidth, shoulder, cutWidth, -cutDepth, 200 + widthDeltaHalf, cutDepth, cutWidth, -shoulder, morticeWidth, 12, cutWidth,
 			62,
-			-cutWidth, 12, -morticeWidth, -shoulder, -cutWidth, cutDepth, -200, -cutDepth, -cutWidth, shoulder, -morticeWidth, -shoulder, -cutWidth, cutDepth, -200, -cutDepth, -cutWidth, shoulder, -morticeWidth, -12, -cutWidth,
+			-cutWidth, 12, -morticeWidth, -shoulder, -cutWidth, cutDepth, -200 - widthDeltaHalf, -cutDepth, -cutWidth, shoulder, -morticeWidth, -shoulder, -cutWidth, cutDepth, -200 - widthDeltaHalf, -cutDepth, -cutWidth, shoulder, -morticeWidth, -12, -cutWidth,
 			-62
 		];
 
@@ -307,12 +349,12 @@
 		boundary = drawPolyline( boundary )
 		boundary.geometry.applyMatrix( new THREE.Matrix4().makeTranslation( 0, 12, 0 ) );
 		boundary.updateMatrixWorld();
-		scene.remove( edges );
 
 		spreader.add( boundary ); 
-		edges = new THREE.EdgesHelper( boundary, 0x333333 );
-		scene.add( edges );
 
+//		edge = new THREE.EdgesHelper( boundary, 0x333333 );
+//		edges.add( edge );
+		edges.remove( edge );
 		spreader.add( originMarker.clone() );
 
 		return spreader;
@@ -355,10 +397,7 @@
 
 	function drawMortice( parameters ) {
 
-
-		height = thickness;
-
-		path = [ morticeWidth, height, -morticeWidth, -height ];
+		path = [ morticeWidth, thickness, -morticeWidth, -thickness ];
 
 		vertices = buildVerticesBySingles( path, parameters );
 
@@ -394,9 +433,9 @@
 
 		paths = [];
 
-		paths[ 0 ]  = [ face, 12, -cutDepth, face, 80, -cutDepth, 12, face, -12, -cutDepth, -88, cutDepth, -12, -50, -cutDepth, -12  ];
+		paths[ 0 ]  = [ face , 12, -cutDepth, face, 80, -cutDepth, 12, face, -12, -cutDepth, -88, cutDepth, -12, -54, -cutDepth, -12  ];
 
-		paths[ 1 ]  = [ 12, cutDepth , 80, -25, -cutDepth, -12, face, 12, -cutDepth, 50, -12, -cutDepth, -88, cutDepth, -12, cutDepth ];
+		paths[ 1 ]  = [ 12, cutDepth , 80, -32, -cutDepth, -12, face, 12, -cutDepth, 54, -12, -cutDepth, -88, cutDepth, -12, -face ];
 
 		vertices = buildVerticesBySingles( paths[ index ], parameters  );
 
@@ -483,8 +522,8 @@
 
 		mesh = new THREE.Mesh( geometry, material );
 
-		edges = new THREE.EdgesHelper( mesh, 0x333333 );
-		scene.add( edges );
+		edge = new THREE.EdgesHelper( mesh, 0x333333 );
+		edges.add( edge );
 
 		return mesh;
 
