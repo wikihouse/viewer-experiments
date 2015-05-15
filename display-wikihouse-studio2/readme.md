@@ -21,7 +21,11 @@ There are a number of issues to be resolved - particularly the long load times.
 
 ### Features
 
-* Enables real-time zoom, pan and rotate of the design
+* Real-time zoom, pan and rotate of the model
+* Choice of camera controllers
+	* Orbit - good for the overview
+	* First Person - good for the walk-through
+* Ability to freeze camera at current position - by clicking the check box or pressing the space bar
 * Views have shade and shadow
 * Slider bar controls exploded view
 * Buttons for
@@ -29,7 +33,7 @@ There are a number of issues to be resolved - particularly the long load times.
 	* Plan View
 	* Reset View
 * Highlight and heads-up display of clicked-on object properties
-	* Will eventually display link to spec clause, IFC, BofM etc
+	* Will eventually display link to specification clause, [IFC]( http://en.wikipedia.org/wiki/Industry_Foundation_Classes ), Bill of Materials etc
 * Background is three circular gradients with random colors
 * Slide-out menu enables basic operation on mobile device
 * Loading progress indicates how many bytes have been loaded 
@@ -38,6 +42,15 @@ There are a number of issues to be resolved - particularly the long load times.
 
 * Obtain access to data for individual components
 * Rebuild as faster-loading JSON/STL files
+* Rebuild as fully parameterized 3D model
+* Real-time control of First Person Controls Look Speed and Movement Speed 
+* Permalinks to set camera position etc
+* Set sun position
+* And pretty rendering bits
+
+### Issues
+
+Once you have initiated 'First Person Controls', you can no longer change the exploded view factor.
 
 
 ### System Requirements
@@ -65,6 +78,12 @@ All design information shared in the WikiHouse commons is shared under a CC-BY-S
 
 
 ### Change Log
+
+2015-05-14 ~ Theo
+
+* R5
+* Adds choice of Orbit or First Person Controls
+* Add freeze camera movement
 
 2015-05-04 ~ Theo
 

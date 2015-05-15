@@ -17,7 +17,7 @@ Fulscreen: [Display Wikihouse StepUp1 R2]( http://wikihouse.github.io/viewer-exp
 
 ### Build Series
 The 'Build' series of files seems to be growing into the specialty of creating new objects that are forks/clones/mini-me's 
-of the equivalent WikiHouse object directly from user input. In other words, creating WikiHose Objects via parameterized functions.
+of the equivalent WikiHouse object directly from user input. In other words, creating WikiHouse Objects via parameterized functions.
 
 [Build WikiHouse StepUp1 R4]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/build-wikihouse-stepup1-r4.html )  
 
