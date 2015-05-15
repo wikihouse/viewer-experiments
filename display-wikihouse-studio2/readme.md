@@ -25,6 +25,8 @@ There are a number of issues to be resolved - particularly the long load times.
 * Choice of camera controllers
 	* Orbit - good for the overview
 	* First Person - good for the walk-through
+		* Left button moves you forward
+		* Right button moves you backward
 * Ability to freeze camera at current position - by clicking the check box or pressing the space bar
 * Views have shade and shadow
 * Slider bar controls exploded view
@@ -54,6 +56,7 @@ There are a number of issues to be resolved - particularly the long load times.
 
 * Once you have initiated 'First Person Controls', you can no longer change the exploded view factor.
 * Components that have been highlighted do not revert to their original color
+* Rest view in First Person mode does not reset view properly
 
 ### System Requirements
 
