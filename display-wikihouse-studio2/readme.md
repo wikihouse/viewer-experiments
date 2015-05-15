@@ -47,11 +47,13 @@ There are a number of issues to be resolved - particularly the long load times.
 * Permalinks to set camera position etc
 * Set sun position
 * And pretty rendering bits
+* Ability to turn off heads-up display
+
 
 ### Issues
 
-Once you have initiated 'First Person Controls', you can no longer change the exploded view factor.
-
+* Once you have initiated 'First Person Controls', you can no longer change the exploded view factor.
+* Components that have been highlighted do not revert to their original color
 
 ### System Requirements
 
