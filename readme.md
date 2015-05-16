@@ -1,8 +1,7 @@
 ![Wikihouse logo]( http://avatars3.githubusercontent.com/u/4091108?v=3&s=300 )  
 _[WikiHouse]( http://www.wikihouse.cc/ ) is an open source building system. Many designers, collaborating to make it simple for everyone to design, print and assemble beautiful, low-energy homes, customised to their needs._
 ***
-[WikiHouse on GitHub]( http://wikihouse.github.io/ )  
-
+[WikiHouse on GitHub]( http://wikihouse.github.io/ ) &rauo;   
 WikiHouse Viewer Experiments Read Me
 ===
 
@@ -16,7 +15,7 @@ What I like to do is grab data files that are locked up in hard disks and do my 
 Remember, it will take a while for the files to 'warm up'. Here are the first work-in-progress steps. Each of the three current projects has its own overview page as well as demos that run in your browser
 
 ### [Display WikiHouse Studio2 Read Me]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-studio2/ )  
-* [Display WikiHouse Studio2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-studio2/latest/index.html ) ~ 2015-05-09 ~ takes too long to load but 'Exploded View' makes it worth the wait!  
+* [Display WikiHouse Studio2]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-studio2/latest/index.html ) ~ 2015-05-14 ~ takes too long to load but 'Exploded View' makes it worth the wait!  
 
 
 ### [Display WikiHouse Step Up Read Me]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/ )  
