@@ -1,10 +1,14 @@
 ![Wikihouse logo]( http://avatars3.githubusercontent.com/u/4091108?v=3&s=300 )  
 _[WikiHouse]( http://www.wikihouse.cc/ ) is an open source building system. Many designers, collaborating to make it simple for everyone to design, print and assemble beautiful, low-energy homes, customised to their needs._
 ***
+[WikiHouse on GitHub]( http://wikihouse.github.io/ )  
+
 WikiHouse Viewer Experiments Read Me
 ===
 
 <span style=display:none; >[View as web page]( http://wikihouse.github.io/viewer-experiments/index.html "view the files as apps." ) </span>  
+
+2015-05-16 ~ All three viewer projects at a 'good enough' stage to start being viewed by the team
 
 2015-05-03 ~ San Francisco. Hi, my name is Theo Armour. I was introduced to WikiHouse by my daughter [Alix]( http://nimblescooters.com/about-us/ ) and became instantly intrigued.
 What I like to do is grab data files that are locked up in hard disks and do my best to help them sing and dance on the web in 3D.
