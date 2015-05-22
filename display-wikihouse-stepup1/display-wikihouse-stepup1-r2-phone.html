@@ -37,7 +37,7 @@
 		info.innerHTML = '<h3><a href="" >' + document.title + '</a> - ' +
 			'<a id=i href=http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/ >&#x24D8;</a>' +
 			'</h3>' +
-			'<div>Touch any component</p>' +
+			'<div><small>Touch any component</small></div>' +
 			'<div><button onclick=returnAllToStartTween(); >Return all to start</button> ' +
 			'<button onclick=assembleQuicklyTween(); >Assemble Quickly</button></div>' +
 			'<div id=msg1 ></div>' +
@@ -307,10 +307,10 @@ console.log( 'oops col ', id );
 //			headsUp.style.display = '';
 
 			msg1.innerHTML  = // '<h3 style="margin:0;" >Component Data Viewer</h3>' +
-				'Three.js id:' + intersected.id + '<br>' +
+				'<small>Three.js id:' + intersected.id + '<br>' +
 				'UUID:' + intersected.uuid + '<br>' +
 //				'Type: ' + intersected.type + '<br>' +
-				'index: ' + intersected.userData.index + '<br>' +
+				'index: ' + intersected.userData.index + '</small>' +
 //				'Point x: ' + intersects[ 0 ].point.x.toFixed(2) + ' y:' + intersects[ 0 ].point.y.toFixed(2) + ' z:' + intersects[ 0 ].point.z.toFixed(2) + '<br>' +
 //				'vertex x:' + pt.x.toFixed(2) + ' y:' + pt.y.toFixed(2) + ' z:' + pt.z.toFixed(2) + '<br>' +
 
