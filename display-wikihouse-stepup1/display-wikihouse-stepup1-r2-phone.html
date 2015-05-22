@@ -34,7 +34,7 @@
 
 		var info = document.body.appendChild( document.createElement( 'div' ) );
 		info.style.cssText = ' margin: 0 10px; max-width: 300px; position: absolute; ';
-		info.innerHTML = '<h3><a href="" >' + document.title + '</a> - ' +
+		info.innerHTML = '<h3 style=margin:0; ><a href="" >' + document.title + '</a> - ' +
 			'<a id=i href=http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/ >&#x24D8;</a>' +
 			'</h3>' +
 			'<div><small>Touch any component</small></div>' +
@@ -42,12 +42,12 @@
 			'<button onclick=assembleQuicklyTween(); >Assemble Quickly</button></div>' +
 			'<div id=msg1 ></div>' +
 		'';
-
+/*
 // Heads Up
 		headsUp = document.body.appendChild( document.createElement( 'div' ) );
 		headsUp.style.cssText = 'background-color: #ddd; border-radius: 8px; padding: 0 5px 10px 5px; opacity: 0.85; ' +
 			'position: absolute; left: 50px; text-align: left; z-index: 10;';
-
+*/
 		container = document.body.appendChild( document.createElement( 'div' ) );
 		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff }  );
 		renderer.setSize( window.innerWidth, window.innerHeight );
@@ -322,7 +322,7 @@ console.log( 'oops col ', id );
 
 			intersected = null;
 
-			headsUp.style.display = 'none';
+//			headsUp.style.display = 'none';
 
 			document.body.style.cursor = 'auto';
 
