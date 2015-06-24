@@ -203,7 +203,7 @@
 
 console.log( 'oops col ', id );
 
-			return;	
+			return;
 
 		}
 
@@ -218,7 +218,7 @@ console.log( 'oops col ', id );
 
 		}
 
-		thickness = vertices.length >  12 || id === 25 ? 20 : 30;	
+		thickness = vertices.length >  12 || id === 25 ? 20 : 30;
 		thickness = 18;
 		geometry = shape.extrude( { amount: thickness, bevelEnabled: false} );
 		geometry.applyMatrix( new THREE.Matrix4().makeTranslation( -39600, -28200, -500 ) );
@@ -254,9 +254,9 @@ console.log( 'oops col ', id );
 
 
 	function onDocumentTouchStart( event ) {
-		
+
 		event.preventDefault();
-		
+
 		event.clientX = event.touches[0].clientX;
 		event.clientY = event.touches[0].clientY;
 		onDocumentMouseDown( event );

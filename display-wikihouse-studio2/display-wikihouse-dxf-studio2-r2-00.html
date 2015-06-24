@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang=en >
 <head>
-<title>display-wikihouse-stepup1-r3.html</title>
+<title>display-wikihouse-dxf-studio2-r1.html</title>
 <meta charset=utf-8 />
 <meta name=viewport content='width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0' />
 </head>
@@ -11,8 +11,21 @@
 <script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
 <script>
 
-	var fileName = 'StepUp_1.dxf';
+	var fileName = 'Studio_v0.2.dxf';
 	var xmlHttp;
+
+	var layer;
+	var layers = [];
+	var layersSearch = false;
+
+	var polylines = [];
+	var polylinesSearch = false;
+	var polyline = [];
+
+	var holes = [];
+	var count = -1;
+	var countHoles = -1;
+	var thickness = 20;
 
 	var components = [];
 	var polylineIDs = [];
@@ -34,11 +47,11 @@
 		var info = document.body.appendChild( document.createElement( 'div' ) );
 		info.style.cssText = 'margin: 20px; max-height: 900px; max-width: 300px; position: absolute; overflow: auto; ';
 		info.innerHTML = '<a href="" ><h1>' + document.title + '</h1></a>' +
-			'<p id=msg >This demo loads an AutoCAD 2007 formatted DXF files and displays the data<br>' +
-			'1. Nested and ready to be cut out - in blue. <br>' +
-			'2. Cut out and assembled - in white. <br>' +
-			'3. Flat shapes (at 0,0,0) ready for data extraction - in magenta</p>' +
-			'<p>Click on any of the assembled mallet components to see sample details.</p>' +
+//			'<p id=msg >This demo loads an AutoCAD 2007 formatted DXF files and displays the data<br>' +
+//			'1. Nested and ready to be cut out - in blue. <br>' +
+//			'2. Cut out and assembled - in white. <br>' +
+//			'3. Flat shapes (at 0,0,0) ready for data extraction - in magenta</p>' +
+//			'<p>Click on any of the assembled mallet components to see sample details.</p>' +
 			'<div id=msg1 ></div>' +
 			'<div id=msg2 >Extracted data:<br></div>' +
 		'';
@@ -57,7 +70,7 @@
 		document.body.appendChild( renderer.domElement );
 
 		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 100000 );
-		camera.position.set( 2000, 2000, 2000 );
+		camera.position.set( 30000, 30000, 30000 );
 
 		controls = new THREE.OrbitControls( camera, renderer.domElement );
 
@@ -81,14 +94,6 @@
 
 	}
 
-	function onWindowResize() {
-
-		camera.aspect = window.innerWidth / window.innerHeight;
-		camera.updateProjectionMatrix();
-
-		renderer.setSize( window.innerWidth, window.innerHeight );
-
-	}
 
 
 	function requestFile( fileName ) {
@@ -100,9 +105,6 @@
 
 	}
 
-	var polylines = [];
-	var polyline = [];
-	var count = -1;
 
 	function getDXF() {
 
@@ -116,69 +118,171 @@
 		text = xmlHttp.responseText;
 		var lines = text.split(/\r\n|\n/);
 
-
 		for ( var i = 0; i < lines.length; i++ ) {
 
 			var l = lines[ i ];
 
+			if ( l === 'LAYER' ) {
+
+				layersSearch = true;
+
+			} else if ( layersSearch === true && l === '  2' ) {
+
+				layers.push( lines[ i + 1 ] );
+
+				layersSearch = false;
+
+			}
 
 			if ( l === 'LWPOLYLINE' ) {
 
-				polylines[ ++count ] = [];
+				polylinesSearch = true;
 
-				polylineIDs.push( lines[ i + 2 ] )
+				startLine = i;
 
-			} else if ( count > -1 && l === ' 10' ) {
+			}
 
-				polylines[ count ].push( v2( + lines[ i + 1] , + lines[ i + 3 ] ) ); // +  sign forces string to number
+			if ( polylinesSearch === true ) {
 
-			} else if ( count > 0 && l === ' 0' ) {
+				if ( l === '  5' ) {
+
+					id = lines[ i + 1 ];
+
+				} else if ( l === '  8' ) {
+
+					layer = lines[ i + 1 ];
+
+					if ( layer === '5_6mmTOOL_CUTTHROUGH_OUTSIDE' ) {
+
+						polylines[ ++count ] = {};
+
+						polyline = polylines[ count ];
+
+						polyline.id = id;
+
+						polyline.startLine = startLine;
+
+						polyline.layer = layer;
+
+						polyline.vertices = [];
+
+					} else if ( layer === '4_6mmTOOL_CUTTHROUGH_INSIDE'  ) {
+
+						holes[ ++countHoles ] = {};
+
+						polyline = holes[ countHoles ];
+
+						polyline.id = id;
+
+						polyline.startLine = startLine;
+
+						polyline.layer = layer;
+
+						polyline.vertices = [];
+
+					}
+
+
+
+				} else if ( polylinesSearch === true && l === ' 10' && ( layer === '5_6mmTOOL_CUTTHROUGH_OUTSIDE' || layer === '4_6mmTOOL_CUTTHROUGH_INSIDE' ) ) {
+
+					polyline.vertices.push( v2( + lines[ i + 1] , + lines[ i + 3 ] ) ); // +  sign forces string to number
+
+				} else if ( polylinesSearch === true && l === '  0' ) {
+
+					polylinesSearch = false;
+
+				}
+
+			}
+
+/*
+
+			if ( l === 'LWPOLYLINE' && lines[ i + 4 ] === '4_6mmTOOL_CUTTHROUGH_INSIDE' ) {
+
+//console.log( ++countHoles );
+
+				holes[ ++countHoles ] = {};
+
+				holes[ countHoles ].vertices = [];
+
+				holes[ countHoles ].id = lines[ i + 2 ];
+
+				holes[ countHoles ].startLine = i;
+
+				layer = lines[ i + 4 ];
+
+			} else if ( countHoles > -1 && l === ' 10' && layer === '4_6mmTOOL_CUTTHROUGH_INSIDE' ) {
+
+				holes[ countHoles ].vertices.push( v2( + lines[ i + 1] , + lines[ i + 3 ] ) ); // +  sign forces string to number
+
+			} else if ( countHoles > 0 && l === ' 0' ) {
 
 				break;
 
 			}
 
+*/
+
 		}
 
 //console.log( polylines );
+//console.log( holes );
 
-		omissions = [ 24, 30, 31, 32, 47, 48, 49, 50 ];
+		for ( var i = 0; i < polylines.length; i++ ) {
 
-		for ( var i = 0; i < polylines.length ; i++ ) {
+				drawPolyline( polylines, i, 0 );
 
-			if ( omissions.indexOf( i ) === -1 ) { 
+		}
 
-				drawPolyline( i );
+		for ( var i = 0; i < holes.length; i++ ) {
 
-				if ( i !== 22 ) { 
+				drawPolyline( holes, i, 200 );
 
-					drawNormalizePolyline( i );
+		}
 
-					drawShapeData( i );
+/*
+
+		omissions = [ 50, 51, 62 ];
+
+		for ( var i = 0; i < holes.length ; i++ ) {
+
+
+			if ( omissions.indexOf( i ) < 0 ) { 
+
+//				drawPolyline( holes, i, -700 );
+
+				if ( i > 0 ) { 
+
+//					drawNormalizePolyline( i );
+
+//					drawShapeData( i );
 
 				}
 
 			}
-		}
 
+		}
+*/
 
 		msg1.innerHTML = '<p>File loaded: ' +fileName + '<p>';
 
 	}
 
-	function drawPolyline( index ) {
+	function drawPolyline( objArray, index, z ) {
 
 		var material = new THREE.MeshNormalMaterial();
 
 		var shape = new THREE.Shape();
-		shape.fromPoints( polylines[ index ] );
+		shape.fromPoints( objArray[ index ].vertices );
 
-		var geometry = shape.extrude( { amount: 18, bevelEnabled: false} );
+		var geometry = shape.extrude( { amount: thickness, bevelEnabled: false} );
 
 		mesh = new THREE.Mesh( geometry, material );
 
-		var z = index === 22 || index === 26 ? -320 : -300;
-		mesh.position.set( mesh.position.x - 40800, mesh.position.y - 27500, z );
+//		var z = z ? -900 : -700;
+		mesh.position.set( -15000, -30000, z );
+
 		mesh.userData.componentID = index;
 		scene.add( mesh );
 
@@ -194,7 +298,7 @@
 		var material = new THREE.MeshBasicMaterial();
 
 		var shape = new THREE.Shape();
-		shape.fromPoints( polylines[ index ] );
+		shape.fromPoints( polylines[ index ].vertices );
 
 		geometry = shape.extrude( { amount: 20, bevelEnabled: false} );
 //		geometry.center();
@@ -219,35 +323,68 @@
 
 	function drawShapeData( index ) {
 
-		var material = new THREE.MeshBasicMaterial( { color: 'magenta', side: 2 } )
+//		var material = new THREE.MeshBasicMaterial( { color: 'magenta', side: 2 } )
+		var material = new THREE.MeshNormalMaterial();
 
 		var shape = new THREE.Shape();
-		shape.fromPoints( polylines[ index ] );
-		geometry = new THREE.ShapeGeometry( shape );
+		shape.fromPoints( polylines[ index ].vertices );
 
+		omissions = [ 50, 51, 62 ];
+
+		for ( var i = 0; i < holes.length; i++ ) {
+
+			if ( omissions.indexOf( i ) > -1 ) { continue; }
+
+			hole = holes[ i ].vertices.reverse();
+			var holePath = new THREE.Path();
+			holePath.fromPoints( hole );
+			shape.holes.push( holePath );
+
+		}
+
+//		geometry = new THREE.ShapeGeometry( shape );
+
+
+
+
+//		geometry.computeBoundingBox();
+//		min = geometry.boundingBox.min
+//		geometry.applyMatrix( new THREE.Matrix4().makeTranslation( -min.x, -min.y , 0 ) );
+
+		var geometry = shape.extrude( { amount: thickness, bevelEnabled: false} );
 		geometry.computeBoundingBox();
-		min = geometry.boundingBox.min
-		geometry.applyMatrix( new THREE.Matrix4().makeTranslation( -min.x, -min.y , 0 ) );
-
-		geometry.computeBoundingBox();
-
 		mesh = new THREE.Mesh( geometry, material );
+
+//		mesh = new THREE.Mesh( geometry, material );
 		scene.add( mesh );
 
+		edges = new THREE.EdgesHelper( mesh, 0x333333 );
+		scene.add( edges );
+
 //console.log( geometry.boundingBox.max );
-		msg2.innerHTML += 'Component ' + index + ' - bounding box x:' + Math.round( geometry.boundingBox.max.x ) + ' y:' + Math.round( geometry.boundingBox.max.y ) + '<br>';
+/*
+		msg2.innerHTML += 'Component ' + index + '<br>' +
+		'bounding box x:' + Math.round( geometry.boundingBox.max.x ) + ' y:' + Math.round( geometry.boundingBox.max.y ) + '<br>';
 		txt = '';
+
+		v0 = geometry.vertices[ 0 ];
+		x = v0.x;
+		y = v0.y;
 		for ( var i = 0; i < geometry.vertices.length; i++ ) {
 
 			v = geometry.vertices[ i ];
 
-			txt += ( v.x ).toFixed( 1 ) + ',' + ( v.y ).toFixed( 1 ) + ' ';
+			txt += ( v.x - x ).toFixed( 1 ) + ',' + ( v.y - y ).toFixed( 1 ) + ' ';
+
+			x = v.x;
+			y = v.y;
+
 		}
 
 		msg2.innerHTML += txt + '<br>';
+*/
 
 	}
-
 
 	function onDocumentTouchStart( event ) {
 		
@@ -325,6 +462,14 @@
 
 	}
 
+	function onWindowResize() {
+
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
+
+		renderer.setSize( window.innerWidth, window.innerHeight );
+
+	}
 
 	function v2( x, y ){ return new THREE.Vector2( x, y ); }
 
