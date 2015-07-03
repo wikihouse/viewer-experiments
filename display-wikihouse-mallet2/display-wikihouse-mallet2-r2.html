@@ -11,7 +11,9 @@
 <script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
 <script>
 
-	var fileName = 'mallet2.dxf';
+
+	var filePath = window.location.origin === 'file://' ? '' : 'http://wikihouse.github.io/viewer-experiments/display-wikihouse-mallet2/';
+	var fileName = filePath + 'mallet2.dxf';
 	var xmlHttp;
 
 	var components = [];
