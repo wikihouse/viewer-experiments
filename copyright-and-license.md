@@ -1,6 +1,6 @@
 ###Copyright
 
-Copyright © 2015 WikiHouse authors
+Copyright &copy; 2015 WikiHouse authors
 
 
 ### License
