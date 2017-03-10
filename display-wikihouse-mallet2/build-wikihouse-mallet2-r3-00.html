@@ -1,19 +1,14 @@
 <!doctype html>
 <html lang=en >
 <head>
-<title>Build Wikihouse Mallet2 R3.1</title>
+<title>Build Wikihouse Mallet2 R3</title>
 <meta charset=utf-8 />
 <meta name=viewport content='width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0' />
 </head>
 <body>
-<!--
-<script src=https://mrdoob.github.io/three.js/build/three.min.js ></script>
-<script src=https://mrdoob.github.io/three.js/examples/js/controls/OrbitControls.js ></script>
-<script src=https://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
--->
-<script src=http://rawgit.com/mrdoob/three.js/dev/build/three.min.js ></script>
-<script src=http://rawgit.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js ></script>
-<script src=http://rawgit.com/mrdoob/three.js/dev/examples/js/libs/stats.min.js ></script>
+<script src=http://mrdoob.github.io/three.js/build/three.min.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/controls/OrbitControls.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
 <script>
 
 	var mallet, edges;
@@ -111,13 +106,14 @@
 		mesh.position.set( 0, -150, 0 );
 		scene.add( mesh );
 
-		mesh = new THREE.GridHelper( 500, 10 );
+		mesh = new THREE.GridHelper( 250, 10 );
 		mesh.position.set( 0, -139, 0 );
 		scene.add( mesh );
 
 // axes
 		var axisHelper = new THREE.AxisHelper( 50 );
 		scene.add( axisHelper );
+
 
 		setRandomGradientBackground();
 
@@ -153,11 +149,11 @@
 
 		vertices = [
 
-			v( fillet, 0 ), v( width - fillet, 0),
-			v( width, fillet ), v( width, height - fillet),
+			v( fillet, 0 ), v( width - fillet, 0), 
+			v( width, fillet ), v( width, height - fillet), 
 			v( width - fillet, height ), v(fillet, height ),
 			v( 0, height - fillet ), v( 0, fillet )
-
+			
 		]
 
 		return drawPolyline( vertices, parameters );
@@ -168,14 +164,14 @@
 		var dHeight = ( height - handleHeight ) / 2
 		vertices = [
 
-			v( 0, fillet ), v( fillet, 0 ), v( width - fillet, 0),
-			v( width, fillet ),
+			v( 0, fillet ), v( fillet, 0 ), v( width - fillet, 0), 
+			v( width, fillet ), 
 			v( width, dHeight ), v( width + handleWidth, dHeight ),
 			v( width + handleWidth, height - dHeight ), v( width, height - dHeight ),
-			v( width, height - fillet),
+			v( width, height - fillet), 
 			v( width - fillet, height ), v(fillet, height ),
 			v( 0, height - fillet )
-
+			
 		]
 
 		return drawPolyline( vertices, parameters );
@@ -200,17 +196,7 @@
 		var shape = new THREE.Shape();
 		shape.fromPoints( vertices );
 
-        var extrudeSettings = {
-        	steps: 2,
-        	amount: thickness,
-        	bevelEnabled: false,
-        	bevelThickness: 1,
-        	bevelSize: 1,
-        	bevelSegments: 1
-        };
-
-        var geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings );
-
+		var geometry = shape.extrude( { amount: thickness, bevelEnabled: false} );
 		geometry.applyMatrix( new THREE.Matrix4().makeTranslation( px, py, pz ) );
 
 		geometry.applyMatrix( new THREE.Matrix4().makeRotationX( rx ) );
@@ -219,18 +205,16 @@
 
 		mesh = new THREE.Mesh( geometry, material );
 
-		var geometryEdge = new THREE.EdgesGeometry( mesh.geometry ); // or WireframeGeometry
-		var material = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 5 } );
-		var edges = new THREE.LineSegments( geometryEdge, material );
-		mesh.add( edges ); // add wireframe as a child of the parent mesh
 
+		edge = new THREE.EdgesHelper( mesh, 0x333333 );
+		edges.add( edge );
 
 		return mesh;
 
 	}
 
 	function setRandomGradientBackground() {
-
+    
 		var col1 = Math.random().toString(16).slice(2, 8);
 		var col2 = Math.random().toString(16).slice(2, 8);
 		var col3 = Math.random().toString(16).slice(2, 8);
