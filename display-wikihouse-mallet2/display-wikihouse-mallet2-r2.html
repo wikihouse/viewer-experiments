@@ -6,9 +6,15 @@
 <meta name=viewport content='width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0' />
 </head>
 <body>
+<!--
 <script src=http://mrdoob.github.io/three.js/build/three.min.js ></script>
 <script src=http://mrdoob.github.io/three.js/examples/js/controls/OrbitControls.js ></script>
 <script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
+-->
+<script src=https://cdn.rawgit.com/mrdoob/three.js/dev/build/three.min.js ></script>
+<script src=https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js ></script>
+<script src=https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/libs/stats.min.js ></script>
+
 <script>
 
 
@@ -94,10 +100,10 @@
 
 	function getDXF() {
 
-		if ( xmlHttp.readyState !== 4  ) { 
+		if ( xmlHttp.readyState !== 4  ) {
 
 			msg1.innerHTML += '.';
-			return; 
+			return;
 
 		}
 
@@ -162,8 +168,12 @@
 		mesh.position.z = z;
 		scene.add( mesh );
 
-		edges = new THREE.EdgesHelper( mesh, 0x333333 );
-		scene.add( edges );
+		var edgesGeometry, edgesMaterial, edges,
+
+		edgesGeometry = new THREE.EdgesGeometry( geometry ); // or WireframeGeometry
+		edgesMaterial = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 5 } );
+		edges = new THREE.LineSegments( edgesGeometry, edgesMaterial );
+		mesh.add( edges ); // add wireframe as a child of the parent mesh
 
 //		components.push( mesh );
 
@@ -190,7 +200,12 @@
 		scene.add( mesh );
 
 		edges = new THREE.EdgesHelper( mesh, 0x333333 );
-		scene.add( edges );
+		var edgesGeometry, edgesMaterial, edges,
+
+		edgesGeometry = new THREE.EdgesGeometry( geometry ); // or WireframeGeometry
+		edgesMaterial = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 5 } );
+		edges = new THREE.LineSegments( edgesGeometry, edgesMaterial );
+		mesh.add( edges ); // add wireframe as a child of the parent mesh
 
 		components.push( mesh );
 
@@ -230,9 +245,9 @@
 
 
 	function onDocumentTouchStart( event ) {
-		
+
 		event.preventDefault();
-		
+
 		event.clientX = event.touches[0].clientX;
 		event.clientY = event.touches[0].clientY;
 		onDocumentMouseDown( event );

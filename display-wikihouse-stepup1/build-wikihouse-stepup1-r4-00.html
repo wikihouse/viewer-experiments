@@ -1,19 +1,14 @@
 <!doctype html>
 <html lang=en >
 <head>
-<title>build-wikihouse-stepup-r4.1</title>
+<title>build-wikihouse-stepup-r4.html</title>
 <meta charset=utf-8 />
 <meta name=viewport content='width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0' />
 </head>
 <body>
-<!--
-<script src=https://mrdoob.github.io/three.js/build/three.min.js ></script>
-<script src=https://mrdoob.github.io/three.js/examples/js/controls/OrbitControls.js ></script>
-<script src=https://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
--->
-<script src=https://rawgit.com/mrdoob/three.js/dev/build/three.min.js ></script>
-<script src=https://rawgit.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js ></script>
-<script src=https://rawgit.com/mrdoob/three.js/dev/examples/js/libs/stats.min.js ></script>
+<script src=http://mrdoob.github.io/three.js/build/three.min.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/controls/OrbitControls.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
 <script>
 
 
@@ -241,9 +236,9 @@
 
 		var path = [
 			[ 0, 0 ], [ 75, 0 ], [ 0, upstand ], [ -cutDepth, 0 ], [ 0, cutWidth ], [ face, 0 ], [ 0, -cutWidth ], [ -cutDepth, 0 ], [ 0, -upstand ], [ 40, 0 ], [ 50, 250 + heightDelta ], [ 180 + widthDelta, 0 ],
-				[ 50, -250  - heightDelta ], [ 40, 0 ], [ 0, upstand ], [ -cutDepth, 0 ], [ 0, cutWidth ], [ face, 0 ], [ 0, -cutWidth ], [ -cutDepth, 0 ], [ 0, -upstand ], [ 75, 0 ],
-			[ 0, 505 + heightDelta],
-			[-60, 0 ], [ 0, -cutDepth ], [ -cutWidth, 0 ], [ 0, shoulder ], [ -80, 0 ], [ -cutDepth, -40 ], [ -40, 0 ], [ -cutDepth, 20 ], [ -142 + -widthDelta, 0 ], [ -cutDepth, -20 ], [ -40, 0 ],
+				[ 50, -250  - heightDelta ], [ 40, 0 ], [ 0, upstand ], [ -cutDepth, 0 ], [ 0, cutWidth ], [ face, 0 ], [ 0, -cutWidth ], [ -cutDepth, 0 ], [ 0, -upstand ], [ 75, 0 ], 
+			[ 0, 505 + heightDelta], 
+			[-60, 0 ], [ 0, -cutDepth ], [ -cutWidth, 0 ], [ 0, shoulder ], [ -80, 0 ], [ -cutDepth, -40 ], [ -40, 0 ], [ -cutDepth, 20 ], [ -142 + -widthDelta, 0 ], [ -cutDepth, -20 ], [ -40, 0 ], 
 				[ -cutDepth, 40 ], [ -80, 0 ], [ 0, -shoulder ], [ -cutWidth, 0 ], [ 0, cutDepth ], [ -60, 0 ],
 			[ 0, -505 - heightDelta ]
 
@@ -286,7 +281,7 @@
 		holes.push( drawBoneI( 1, { x: 70, y: depth - 360 } ) );
 		holes.push( drawBoneI( 1, { x: width - 105, y: depth - 360 } ) );
 
-		stepBottom.add( drawPolyline( boundary, { holes: holes } ) );
+		stepBottom.add( drawPolyline( boundary, { holes: holes } ) ); 
 
 		return stepBottom;
 
@@ -309,8 +304,8 @@
 
 		holes.push( buildBoneL( 0, { x: 70, y: 70 } ) );
 		holes.push( buildBoneL( 1, { x: width - 190, y: 102 } ) );
-
-		stepTop.add( drawPolyline( boundary, { holes: holes } ) );
+ 
+		stepTop.add( drawPolyline( boundary, { holes: holes } ) ); 
 
 		return stepTop;
 
@@ -328,7 +323,7 @@
 
 		holes.push( drawBoneI( 0, { x: depth - 140, y: height - 130, width: 50 } ) );
 
-		side.add( drawPolyline( boundary, { holes: holes } ) );
+		side.add( drawPolyline( boundary, { holes: holes } ) ); 
 
 		side.add( originMarker.clone() );
 
@@ -343,7 +338,7 @@
 
 		var shoulder = thickness + cutDepth;
 
-		var path = [
+		var path = [ 
 			cutWidth, -12, morticeWidth, shoulder, cutWidth, -cutDepth, 200 + widthDeltaHalf, cutDepth, cutWidth, -shoulder, morticeWidth, shoulder, cutWidth, -cutDepth, 200 + widthDeltaHalf, cutDepth, cutWidth, -shoulder, morticeWidth, 12, cutWidth,
 			62,
 			-cutWidth, 12, -morticeWidth, -shoulder, -cutWidth, cutDepth, -200 - widthDeltaHalf, -cutDepth, -cutWidth, shoulder, -morticeWidth, -shoulder, -cutWidth, cutDepth, -200 - widthDeltaHalf, -cutDepth, -cutWidth, shoulder, -morticeWidth, -12, -cutWidth,
@@ -355,11 +350,11 @@
 		boundary.geometry.applyMatrix( new THREE.Matrix4().makeTranslation( 0, 12, 0 ) );
 		boundary.updateMatrixWorld();
 
-		spreader.add( boundary );
+		spreader.add( boundary ); 
 
 //		edge = new THREE.EdgesHelper( boundary, 0x333333 );
 //		edges.add( edge );
-//		edges.remove( edge );
+		edges.remove( edge );
 		spreader.add( originMarker.clone() );
 
 		return spreader;
@@ -377,7 +372,7 @@
 
 		var boundary = buildVerticesByPairs( path, { x: cutDepth } );
 
-		wedge.add( drawPolyline( boundary, 0 ) );
+		wedge.add( drawPolyline( boundary, 0 ) ); 
 
 		return wedge;
 
@@ -394,7 +389,7 @@
 
 		var boundary = buildVerticesByPairs( path, { x: cutDepth } );
 
-		peg.add( drawPolyline( boundary, 0 ) );
+		peg.add( drawPolyline( boundary, 0 ) ); 
 
 		return peg;
 
@@ -417,7 +412,7 @@
 
 		widthEnd = thickness + 2 * cutDepth;
 
-		width0 = parameters.width ? parameters.width : upstand;
+		width0 = parameters.width ? parameters.width : upstand; 
 
 //horizontal
 		paths[ 0 ] = [ tenon, -cutDepth, width0, cutDepth, tenon, -widthEnd, -tenon, cutDepth, -width0, -cutDepth, -tenon, widthEnd ];
@@ -425,7 +420,7 @@
 // vertical
 		height1 = 100;
 
-		paths[ 1 ] = [ widthEnd, tenon, -cutDepth, height1 - 2 * tenon, cutDepth, tenon, -widthEnd, -tenon, cutDepth, -height1 + 2 * tenon, -cutDepth, -tenon ];
+		paths[ 1 ] = [ widthEnd, tenon, -cutDepth, height1 - 2 * tenon, cutDepth, tenon, -widthEnd, -tenon, cutDepth, -height1 + 2 * tenon, -cutDepth, -tenon ];   
 
 		vertices = buildVerticesBySingles( paths[ index ], parameters );
 
@@ -518,19 +513,7 @@
 
 		}
 
-//		var geometry = shape.extrude( { amount: thickness, bevelEnabled: false} );
-
-        var extrudeSettings = {
-        	steps: 2,
-        	amount: thickness,
-        	bevelEnabled: false,
-        	bevelThickness: 1,
-        	bevelSize: 1,
-        	bevelSegments: 1
-        };
-
-        var geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings );
-
+		var geometry = shape.extrude( { amount: thickness, bevelEnabled: false} );
 		geometry.applyMatrix( new THREE.Matrix4().makeTranslation( px, py, pz ) );
 
 		geometry.applyMatrix( new THREE.Matrix4().makeRotationX( rx ) );
@@ -539,15 +522,8 @@
 
 		mesh = new THREE.Mesh( geometry, material );
 
-//		edge = new THREE.EdgesHelper( mesh, 0x333333 );
-//		edges.add( edge );
-
-		var edgesGeometry, edgesMaterial, edges;
-
-		edgesGeometry = new THREE.EdgesGeometry( geometry ); // or WireframeGeometry
-		edgesMaterial = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 5 } );
-		edges = new THREE.LineSegments( edgesGeometry, edgesMaterial );
-		mesh.add( edges ); // add wireframe as a child of the parent mesh
+		edge = new THREE.EdgesHelper( mesh, 0x333333 );
+		edges.add( edge );
 
 		return mesh;
 

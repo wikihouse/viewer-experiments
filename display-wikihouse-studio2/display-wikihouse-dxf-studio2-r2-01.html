@@ -1,20 +1,14 @@
 <!doctype html>
 <html lang=en >
 <head>
-<title>display wikihouse dxf studio2 r2.1</title>
+<title>display wikihouse dxf studio2 r2</title>
 <meta charset=utf-8 />
 <meta name=viewport content='width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0' />
 </head>
 <body>
-<!--
 <script src=http://mrdoob.github.io/three.js/build/three.min.js ></script>
 <script src=http://mrdoob.github.io/three.js/examples/js/controls/OrbitControls.js ></script>
 <script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
--->
-<script src=https://cdn.rawgit.com/mrdoob/three.js/dev/build/three.min.js ></script>
-<script src=https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js ></script>
-<script src=https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/libs/stats.min.js ></script>
-
 <script>
 
 	var fileName = 'Studio_v0.2.dxf';
@@ -115,10 +109,10 @@
 
 	function getDXF() {
 
-		if ( xmlHttp.readyState !== 4  ) {
+		if ( xmlHttp.readyState !== 4  ) { 
 
 			msg1.innerHTML += '.';
-			return;
+			return; 
 
 		}
 
@@ -270,7 +264,7 @@ console.log( uniques.length );
 
 			for ( var j = 0; j < holes.length; j++ ) {
 
-				secondBB = new THREE.Box3().setFromPoints( holes[ j ].vertices );
+				secondBB = new THREE.Box3().setFromPoints( holes[ j ].vertices ); 
 
 				if ( firstBB.containsBox( secondBB ) === true ) {
 
@@ -294,18 +288,7 @@ console.log( uniques.length );
 
 			}
 
-//			geometry = shape.extrude( { amount: thickness, bevelEnabled: false} );
-
-			var extrudeSettings = {
-				steps: 2,
-				amount: thickness,
-				bevelEnabled: false,
-				bevelThickness: 1,
-				bevelSize: 1,
-				bevelSegments: 1
-			};
-
-			geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+			geometry = shape.extrude( { amount: thickness, bevelEnabled: false} );
 
 			mesh = new THREE.Mesh( geometry, material );
 			mesh.userData.componentID = i;
@@ -313,14 +296,10 @@ console.log( uniques.length );
 			mesh.userData.layer = polylines[ i ].layer;
 			mesh.position.set( -15000, -30000, 0 );
 
-			var edgesGeometry, edgesMaterial, edges,
-
-			edgesGeometry = new THREE.EdgesGeometry( geometry ); // or WireframeGeometry
-			edgesMaterial = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 5 } );
-			edges = new THREE.LineSegments( edgesGeometry, edgesMaterial );
-			mesh.add( edges ); // add wireframe as a child of the parent mesh
-
 			components.add( mesh );
+
+			edges = new THREE.EdgesHelper( mesh, 0x333333 );
+			components.add( edges );
 
 		}
 
@@ -356,39 +335,23 @@ console.log( uniques.length );
 		var shape = new THREE.Shape();
 		shape.fromPoints( objArray[ index ].vertices );
 
-//		var geometry = shape.extrude( { amount: thickness, bevelEnabled: false } );
-
-		var extrudeSettings = {
-			steps: 2,
-			amount: thickness,
-			bevelEnabled: false,
-			bevelThickness: 1,
-			bevelSize: 1,
-			bevelSegments: 1
-		};
-
-		geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+		var geometry = shape.extrude( { amount: thickness, bevelEnabled: false } );
 
 		mesh = new THREE.Mesh( geometry, material );
 		mesh.position.set( -15000, -30000, z );
 		mesh.userData.componentID = index;
 		mesh.userData.layer = objArray[ index ].layer;
-
-		var edgesGeometry, edgesMaterial, edges,
-
-		edgesGeometry = new THREE.EdgesGeometry( geometry ); // or WireframeGeometry
-		edgesMaterial = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 5 } );
-		edges = new THREE.LineSegments( edgesGeometry, edgesMaterial );
-		mesh.add( edges ); // add wireframe as a child of the parent mesh
-
 		components.add( mesh );
+
+		edges = new THREE.EdgesHelper( mesh, 0x333333 );
+		components.add( edges );
 
 	}
 
 	function onDocumentTouchStart( event ) {
-
+		
 		event.preventDefault();
-
+		
 		event.clientX = event.touches[0].clientX;
 		event.clientY = event.touches[0].clientY;
 		onDocumentMouseDown( event );
@@ -485,3 +448,5 @@ console.log( uniques.length );
 </script>
 </body>
 </html>
+
+

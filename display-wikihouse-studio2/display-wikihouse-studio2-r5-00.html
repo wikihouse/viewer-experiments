@@ -22,7 +22,7 @@
 
 	var raycaster;
 	var mouse;
-
+	
 	var info, renderer, scene, camera, controls, stats, light;
 	var geometry, material, mesh, helper;
 
@@ -70,7 +70,7 @@
 
 		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff }  );
 		renderer.setSize( window.innerWidth, window.innerHeight );
-		renderer.shadowMap.enabled = true;
+		renderer.shadowMapEnabled = true;
 		renderer.shadowMapSoft = true;
 		document.body.appendChild( renderer.domElement );
 
@@ -101,19 +101,19 @@
 		light.position.set( 200, 200, 200 );
 
 		var d = 20;
-		light.shadow.camera.left = -d;
-		light.shadow.camera.right = d;
-		light.shadow.camera.top = d;
-		light.shadow.camera.bottom = -d;
+		light.shadowCameraLeft = -d;
+		light.shadowCameraRight = d;
+		light.shadowCameraTop = d;
+		light.shadowCameraBottom = -d;
 
-		light.shadow.camera.near = 200;
-		light.shadow.camera.far = 500;
+		light.shadowCameraNear = 200;
+		light.shadowCameraFar = 500;
 
 // can help stop appearance of gridlines in objects with opacity < 1
-		light.shadow.bias = -0.0002; // default 0 ~ distance fron corners?
-//		light.shadowDarkness = 0.3; // default 0.5
-		light.shadow.mapSize.width = 2048;  // default 512
-		light.shadow.mapSize.height = 2048;
+		light.shadowBias = -0.0002; // default 0 ~ distance fron corners?
+		light.shadowDarkness = 0.3; // default 0.5
+		light.shadowMapWidth = 2048;  // default 512
+		light.shadowMapHeight = 2048;
 
 		light.castShadow = true;
 //		light.shadowCameraVisible = true;
@@ -127,7 +127,8 @@
 		geometry = new THREE.BoxGeometry( 100, 5, 100 );
 
 		var material = new THREE.MeshPhongMaterial( {
-			color: 0xffffff * Math.random(),
+			color: 0xffffff * Math.random(), 
+			ambient: 0xffffff * Math.random(),
 			specular: 0xffffff * Math.random(),
 			shininess: 50,
 			side: THREE.DoubleSide
@@ -145,7 +146,7 @@
 
 		var axisHelper = new THREE.AxisHelper( 50 );
 		scene.add( axisHelper );
-
+		
 		loader = new THREE.ColladaLoader();
 		loader.options.convertUpAxis = true;
 		loader.load( fileName, function colladaReady( collada ) {
@@ -202,7 +203,7 @@
 
 		setRandomGradient();
 
-		viewReset();
+viewReset();
 
 	}
 
@@ -216,7 +217,7 @@
 
 		var s = parseFloat( inpStretch.value ) / 10;
 
-		cc = scene.children[5].children[0].children;
+		cc = scene.children[6].children[0].children;
 
 		for ( var i = 0; i < cc.length; i++ ) {
 
@@ -306,9 +307,9 @@
 	}
 
 	function onDocumentTouchStart( event ) {
-
+		
 		event.preventDefault();
-
+		
 		event.clientX = event.touches[0].clientX;
 		event.clientY = event.touches[0].clientY;
 		onDocumentMouseDown( event );
