@@ -85,6 +85,12 @@ All design information shared in the WikiHouse commons is shared under a CC-BY-S
 
 ### Change Log
 
+2017-03-10 ~ Theo
+
+* R5.1
+* Fixed explode
+* Other Light and shadow fixes
+
 2015-05-14 ~ Theo
 
 * R5
