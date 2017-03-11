@@ -11,9 +11,9 @@
 <script src=https://mrdoob.github.io/three.js/examples/js/controls/OrbitControls.js ></script>
 <script src=https://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
 -->
-<script src=https://rawgit.com/mrdoob/three.js/dev/build/three.min.js ></script>
-<script src=https://rawgit.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js ></script>
-<script src=https://rawgit.com/mrdoob/three.js/dev/examples/js/libs/stats.min.js ></script>
+<script src=https://cdn.rawgit.com/mrdoob/three.js/dev/build/three.min.js ></script>
+<script src=https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js ></script>
+<script src=https://cdn.rawgit.com/mrdoob/three.js/dev/examples/js/libs/stats.min.js ></script>
 <script>
 
 	var fileName = 'StepUp_1.dxf';
@@ -178,7 +178,17 @@
 		var shape = new THREE.Shape();
 		shape.fromPoints( polylines[ index ] );
 
-		var geometry = shape.extrude( { amount: 18, bevelEnabled: false} );
+//		var geometry = shape.extrude( { amount: 18, bevelEnabled: false} );
+        var extrudeSettings = {
+        	steps: 2,
+        	amount: 18,
+        	bevelEnabled: false,
+        	bevelThickness: 1,
+        	bevelSize: 1,
+        	bevelSegments: 1
+        };
+
+        var geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings );
 
 		mesh = new THREE.Mesh( geometry, material );
 
@@ -205,7 +215,19 @@
 		var shape = new THREE.Shape();
 		shape.fromPoints( polylines[ index ] );
 
-		geometry = shape.extrude( { amount: 20, bevelEnabled: false} );
+//		geometry = shape.extrude( { amount: 20, bevelEnabled: false} );
+
+        var extrudeSettings = {
+        	steps: 2,
+        	amount: 20,
+        	bevelEnabled: false,
+        	bevelThickness: 1,
+        	bevelSize: 1,
+        	bevelSegments: 1
+        };
+
+        var geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+
 //		geometry.center();
 		geometry.computeBoundingBox();
 

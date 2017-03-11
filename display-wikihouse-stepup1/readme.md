@@ -58,7 +58,7 @@ Currently the assembled position are being input 'by eye' with the help of the l
 With each new revision, the process should become increasingly automated.
 
 
-[Display WikiHouse StepUp1 R3]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r3.html )
+[Display WikiHouse StepUp1 R4]( http://wikihouse.github.io/viewer-experiments/display-wikihouse-stepup1/display-wikihouse-stepup1-r4.html )
 
 * Created 2015-05-03 ~ Not as flashy. Work-in-progress toward parameterization
 
