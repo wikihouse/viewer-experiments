@@ -43,7 +43,7 @@ Remember, it will take a while for the files to 'warm up'. Here are the first wo
 * Designed for you to play with
 
 
-###Copyright
+### Copyright
 
 Copyright © 2015 WikiHouse authors
 
